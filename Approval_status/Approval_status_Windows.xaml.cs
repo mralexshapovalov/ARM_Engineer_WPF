@@ -46,7 +46,6 @@ namespace ARM_Engineer.Approval_status
                     {
                         list.Last().Description = reader.GetString(2);
                     }
-
                 }
             }
             dataGrid_Approval_status.ItemsSource = list;
