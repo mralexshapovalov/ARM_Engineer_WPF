@@ -12,14 +12,6 @@ namespace ARM_Engineer.Approval_status
 {
     class Approval_statusDataBase
     {
-        
-        public void Approval_statusDataBaseTable()
-        {
-         
-            
-                    
-                
-            
-        }
+       
     }
 }

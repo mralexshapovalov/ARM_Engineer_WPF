@@ -11,9 +11,7 @@ namespace ARM_Engineer.Approval_status
     internal class Approval_status
     {
         public int ID { get; set; }
-       
         public string? Name { get; set; }
- 
         public string? Description { get; set; }
     }
 }
