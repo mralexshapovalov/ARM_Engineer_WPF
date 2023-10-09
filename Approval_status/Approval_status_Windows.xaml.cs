@@ -3,6 +3,9 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +64,26 @@ namespace ARM_Engineer.Approval_status
 
         private void button_Remove_Click(object sender, RoutedEventArgs e)
         {
-
+            //var selectedRow = dataGrid_Approval_status.SelectedItem;
+            //Approval_status request = selectedRow as Approval_status;
+            ////int id = request.Name;
+            ////NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
+            //string query = "delete from \"Approval_status\" where \"Name\"";
+            //NpgsqlCommand cmd = new NpgsqlCommand(query, DataBaseConnection.Connection());
+            //cmd.ExecuteNonQuery();
+            //MessageBox.Show("Data deleted successfully");
+            var selectedRow = dataGrid_Approval_status.SelectedItem;
+            Approval_status request = selectedRow as Approval_status;
+            string commandText = $"DELETE FROM \"Approval_status\" WHERE \"ID\"=(@p)";
+            using (var cmd = new NpgsqlCommand(commandText, DataBaseConnection.Connection()))
+            {
+                cmd.Parameters.AddWithValue("p",request.ID);
+                cmd.ExecuteNonQuery();
+                dataGrid_Approval_status.UpdateLayout();
+                MessageBox.Show("Удаление успешно выолнено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+               
+            }
+            dataGrid_Approval_status.UpdateLayout();
         }
 
         private void button_Add_Click(object sender, RoutedEventArgs e)
@@ -69,5 +91,7 @@ namespace ARM_Engineer.Approval_status
             Approval_status_add approval_Status_Add = new Approval_status_add();
             approval_Status_Add.Show();
         }
+
+       
     }
 }
