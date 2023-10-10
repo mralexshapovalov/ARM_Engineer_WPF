@@ -8,7 +8,7 @@ using static ARM_Engineer.Approval_status.Approval_status_Windows;
 
 namespace ARM_Engineer.Approval_status
 {
-    internal class Approval_status
+    public class Approval_status
     {
         public int? ID { get; set; }
         public string? Name { get; set; }

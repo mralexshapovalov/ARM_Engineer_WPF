@@ -22,60 +22,67 @@ namespace ARM_Engineer.Approval_status
 {
     public partial class Approval_status_add : Window
     {
-        
-           public Approval_status_add()
+        string openMode;
+        Approval_status model;
+        public Approval_status_add(string openMode, Approval_status model)
         {
-
             InitializeComponent();
+            this.openMode = openMode;
+            this.model = model;
+
+            if(openMode == "Изменить")
+            {
+                textBox_Name_Approval_status.Text = model.Name; 
+                textBox_Description_Approval_status.Text = model.Description;
+            }
         }
         private void button_Save_Approval_status_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
-            {
-                try
+           if(openMode == "Добавить")
+           {
+                if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
-                    NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
-                    cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
+                        cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    DialogResult = true;
+                    Close();
                 }
-                catch (Exception ex)
+           } 
+           else if(openMode == "Изменить")
+           {
+                if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                    try
+                    {
+                        NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBaseConnection.Connection());
+                        cmd.Parameters.Add(new NpgsqlParameter("@ID",model.ID));
+                        cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    DialogResult = true;
+                    Close();
                 }
-                Close();
-            } 
+            }      
         }
-
-       public void Showew()
-       {
-
-
-            Show();
-            
-
-        }
-
-        private void Button_Click(object sender, SelectedCellsChangedEventArgs e)
-        {
-            
-           
-        }
-        public string textBoxName
-        {
-            get
-            {
-                return textBox_Name_Approval_status.Text;
-            }
-            set
-            {
-                textBox_Name_Approval_status.Text = value;
-            }
-        }
-
-
     }
 }
