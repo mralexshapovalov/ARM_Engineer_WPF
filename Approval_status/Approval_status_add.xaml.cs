@@ -2,11 +2,14 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -19,11 +22,12 @@ namespace ARM_Engineer.Approval_status
 {
     public partial class Approval_status_add : Window
     {
-        public Approval_status_add()
+        
+           public Approval_status_add()
         {
+
             InitializeComponent();
         }
-
         private void button_Save_Approval_status_Click(object sender, RoutedEventArgs e)
         {
             if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
@@ -43,9 +47,35 @@ namespace ARM_Engineer.Approval_status
                     MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 Close();
-
-
             } 
         }
+
+       public void Showew()
+       {
+
+
+            Show();
+            
+
+        }
+
+        private void Button_Click(object sender, SelectedCellsChangedEventArgs e)
+        {
+            
+           
+        }
+        public string textBoxName
+        {
+            get
+            {
+                return textBox_Name_Approval_status.Text;
+            }
+            set
+            {
+                textBox_Name_Approval_status.Text = value;
+            }
+        }
+
+
     }
 }

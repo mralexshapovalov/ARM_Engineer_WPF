@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Approval_status"
         mc:Ignorable="d"
-        Title="Approval_status_add" Height="346" Width="313">
-    <Grid Margin="0,0,0,6">
-        <TextBox x:Name="textBox_Name_Approval_status" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Description_Approval_status" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="53"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="53"/>
-        <Button x:Name="button_Save_Approval_status" Content="Сохранить" HorizontalAlignment="Left" Margin="36,269,0,0" VerticalAlignment="Top" Click="button_Save_Approval_status_Click"/>
+        Title="Approval_status_add" Height="346" Width="270">
+    <Grid Margin="0,0,0,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="56*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="textBox_Name_Approval_status" x:FieldModifier="public" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="18 
+                 "/>
+        <TextBox x:Name="textBox_Description_Approval_status" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="18" x:FieldModifier="public"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="53"/>
+        <Label Content="Описание" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="button_Save_Approval_status" Content="Сохранить" HorizontalAlignment="Left" Margin="36,55,0,0" VerticalAlignment="Top" Click="button_Save_Approval_status_Click" Grid.Row="2"/>
     </Grid>
-  
+
 
 
 </Window>
