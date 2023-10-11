@@ -41,7 +41,7 @@ namespace ARM_Engineer.Approval_status
         {
            if(openMode == "Добавить")
            {
-                
+          
                 if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
                     try
@@ -59,35 +59,41 @@ namespace ARM_Engineer.Approval_status
                     {
                         MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    DialogResult = true;
-                    Close();
+                    
                 }
            } 
            else if(openMode == "Изменить")
            {
-
+                
                 if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
                     Title = "Статус согласование(Изменить)";
                     try
                     {
                         NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBaseConnection.Connection());
-                        cmd.Parameters.Add(new NpgsqlParameter("@ID",model.ID));
+                        cmd.Parameters.Add(new NpgsqlParameter("@ID", model.ID));
                         cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
-                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Description_Approval_status.Text));
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                        
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    DialogResult = true;
-                    Close();
                 }
-            }      
+           }
+           
+            DialogResult = true;
+            Close();
+            
+
+
+
+
+
         }
     }
 }
