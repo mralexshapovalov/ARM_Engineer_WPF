@@ -24,6 +24,7 @@ namespace ARM_Engineer.Approval_status
     {
         string openMode;
         Approval_status model;
+       
         public Approval_status_add(string openMode, Approval_status model)
         {
             InitializeComponent();
@@ -40,10 +41,12 @@ namespace ARM_Engineer.Approval_status
         {
            if(openMode == "Добавить")
            {
+                
                 if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
                     try
                     {
+                        
                         NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
                         cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
@@ -62,8 +65,10 @@ namespace ARM_Engineer.Approval_status
            } 
            else if(openMode == "Изменить")
            {
+
                 if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
+                    Title = "Статус согласование(Изменить)";
                     try
                     {
                         NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBaseConnection.Connection());

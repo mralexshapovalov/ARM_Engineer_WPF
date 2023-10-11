@@ -74,10 +74,10 @@ namespace ARM_Engineer.Approval_status
             }
             Data_output();
         }
-
         private void button_Add_Click(object sender, RoutedEventArgs e)
         {
             Approval_status_add approval_Status_Add = new Approval_status_add("Добавить",null);
+            approval_Status_Add.Title = "Статус согласование(Добавить)";
             approval_Status_Add.ShowDialog();
 
             if (approval_Status_Add.DialogResult == true)
@@ -85,12 +85,12 @@ namespace ARM_Engineer.Approval_status
                 Data_output();
             }
         }
-
         private void dataGrid_Approval_status_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (dataGrid_Approval_status.SelectedItems.Count == 1)
             {
                 Approval_status_add approval_Status_Add = new Approval_status_add("Изменить", (Approval_status)dataGrid_Approval_status.SelectedItems[0]);
+                approval_Status_Add.Title ="Статус согласование(Изменить)";
                 approval_Status_Add.Show();
             }
         }
