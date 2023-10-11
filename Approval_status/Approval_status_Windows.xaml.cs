@@ -75,7 +75,8 @@ namespace ARM_Engineer.Approval_status
 
         private void Change_ContextMenu(object sender, RoutedEventArgs e)
         {
-            
+            if (dataGrid_Approval_status.SelectedItems.Count == 1)
+            {
 
                 Approval_status_add approval_Status_Add = new Approval_status_add("Изменить", (Approval_status)dataGrid_Approval_status.SelectedItems[0]);
                 approval_Status_Add.Title = "Статус согласование(Изменить)";
@@ -84,7 +85,7 @@ namespace ARM_Engineer.Approval_status
                 {
                     Data_output();
                 }
-            
+            }
         }
         private void Remove_ContextMenu(object sender, RoutedEventArgs e)
         {
