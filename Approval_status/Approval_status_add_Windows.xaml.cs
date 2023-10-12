@@ -47,7 +47,7 @@ namespace ARM_Engineer.Approval_status
                 {
                     try
                     {
-                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBase.Connection());
                         cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
                         cmd.ExecuteNonQuery();
@@ -67,7 +67,7 @@ namespace ARM_Engineer.Approval_status
                     Title = "Статус согласование(Изменить)";
                     try
                     {
-                        NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBaseConnection.Connection());
+                        NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBase.Connection());
                         cmd.Parameters.Add(new NpgsqlParameter("@ID", model.ID));
                         cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Description_Approval_status.Text));

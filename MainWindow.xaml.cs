@@ -26,12 +26,6 @@ namespace ARM_Engineer
         public MainWindow()
         {
             InitializeComponent();
-
-            
-
-
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -42,8 +36,8 @@ namespace ARM_Engineer
 
         private void Employee_Buton_Click(object sender, RoutedEventArgs e)
         {
-            Employee_Window employee_Window = new Employee_Window();
-            employee_Window.Show();
+            Employee_Table_Window employee_Table_Window = new Employee_Table_Window();
+            employee_Table_Window.Show();
         }
     }
 

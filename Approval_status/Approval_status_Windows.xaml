@@ -31,7 +31,7 @@
               CanUserAddRows="false" Margin="0,35,0,-12"
               IsReadOnly="True"
               HorizontalScrollBarVisibility="Hidden"
-              AlternatingRowBackground="LightGray" AlternationCount="2" Grid.ColumnSpan="2"/>
+              AlternatingRowBackground="LightGray" AlternationCount="2" Grid.ColumnSpan="2" SelectionChanged="dataGrid_Approval_status_SelectionChanged_1"/>
         <Button x:Name="button_Add" 
                 Content="Добавить"
                 HorizontalAlignment="Left" 

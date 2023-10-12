@@ -33,7 +33,7 @@ namespace ARM_Engineer.Approval_status
         void Data_output()
         {
             list = new List<Approval_status>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Approval_status\"", DataBaseConnection.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Approval_status\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
@@ -93,13 +93,18 @@ namespace ARM_Engineer.Approval_status
             {
                 Approval_status request = dataGrid_Approval_status.SelectedItem as Approval_status;
                 string commandText = $"DELETE FROM \"Approval_status\" WHERE \"ID\"=(@p)";
-                using (var cmd = new NpgsqlCommand(commandText, DataBaseConnection.Connection()))
+                using (var cmd = new NpgsqlCommand(commandText, DataBase.Connection()))
                 {
                     cmd.Parameters.AddWithValue("p", request.ID);
                     cmd.ExecuteNonQuery();
                 }
                 Data_output();
             }
+        }
+
+        private void dataGrid_Approval_status_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
