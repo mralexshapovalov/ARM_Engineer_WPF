@@ -38,6 +38,6 @@
                 Margin="0,10,0,0"
                 VerticalAlignment="Top" 
                 Width="74" Click="button_Add_Click" Grid.Column="1"/>
-        <Button Name="cmButton" Height="30"/>
+        
     </Grid>
 </Window>

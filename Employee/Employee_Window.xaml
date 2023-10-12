@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="Employee_Window" Height="450" Width="800">
-    <Grid>
-        
+        Title="Employee_Window" Height="424" Width="540">
+    <Grid Margin="0,0,0,3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="107*"/>
+        </Grid.RowDefinitions>
+        <Label  x:Name="Output_last_name_first_name_patronymic_Label" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Width="489" Height="36"/>
+        <TextBox x:Name="Table_number_TextBox"  HorizontalAlignment="Left" Margin="155,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Height="23" Grid.Row="1"/>
+        <Label x:Name="Servic_Number_Label" Content="Табельный номер:" HorizontalAlignment="Left" Margin="22,26,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1"/>
+        <Label x:Name="Name_Label" Content="Наименование:" HorizontalAlignment="Left" Margin="22,65,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1"/>
+        <TextBox x:Name="Name_TextBox" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="22" Grid.Row="1"/>
+        <Button x:Name="Record_close_Button" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="22,56,0,0" VerticalAlignment="Top" Width="118" Height="22"/>
+        <Button x:Name="Record_Button" Content="Записать" HorizontalAlignment="Left" Margin="167,56,0,0" VerticalAlignment="Top" Width="79" Height="22"/>
+        <DatePicker x:Name="Date_employment_DatePicker" HorizontalAlignment="Left" Margin="171,98,0,0" VerticalAlignment="Top" Width="129" Grid.Row="1"/>
+        <Label  Content="Дата приема на работу :" HorizontalAlignment="Left" Margin="22,96,0,0" VerticalAlignment="Top" Width="158" Grid.Row="1"/>
+        <DatePicker x:Name="Date_deletion_DatePicker" HorizontalAlignment="Left" Margin="171,130,0,0" VerticalAlignment="Top" Width="129" Grid.Row="1"/>
+        <Label Content="Дата увольнения :&#xD;&#xA;" HorizontalAlignment="Left" Margin="22,128,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1"/>
+        <Label Content="Организация :" HorizontalAlignment="Left" Margin="22,163,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1"/>
+        <Label Content="Должность:" HorizontalAlignment="Left" Margin="22,229,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1"/>
+        <Label Content="Подразделение:" HorizontalAlignment="Left" Margin="22,194,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1"/>
+        <ComboBox x:Name="Organization_Combobox" HorizontalAlignment="Left" Margin="138,167,0,0" VerticalAlignment="Top" Width="286" Grid.Row="1"/>
+        <ComboBox x:Name="Division_Combobox" HorizontalAlignment="Left" Margin="138,198,0,0" VerticalAlignment="Top" Width="286" Grid.Row="1"/>
+        <ComboBox x:Name="Post_Combobox" HorizontalAlignment="Left" Margin="138,229,0,0" VerticalAlignment="Top" Width="286" Grid.Row="1"/>
+
     </Grid>
 </Window>

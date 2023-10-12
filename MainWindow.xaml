@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="dataGrid_Approval_status" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="80,272,0,0" VerticalAlignment="Top" Width="219" Click="Button_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="263*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="Status_Button" Content="Статус" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click"/>
+        <Button x:Name="Employee_Buton" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="380,15,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Employee_Buton_Click"/>
 
     </Grid>
 </Window>

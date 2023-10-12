@@ -27,6 +27,7 @@ namespace ARM_Engineer.Approval_status
        
         public Approval_status_add(string openMode, Approval_status model)
         {
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             this.openMode = openMode;
             this.model = model;
@@ -46,25 +47,21 @@ namespace ARM_Engineer.Approval_status
                 {
                     try
                     {
-                        
                         NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBaseConnection.Connection());
                         cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
-
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, ex.GetType().ToString(), MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-                    
                 }
            } 
            else if(openMode == "Изменить")
            {
-                
                 if (textBox_Name_Approval_status.Text != "" & textBox_Name_Approval_status.Text != "")
                 {
                     Title = "Статус согласование(Изменить)";
@@ -76,8 +73,7 @@ namespace ARM_Engineer.Approval_status
                         cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Description_Approval_status.Text));
                         cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
-                        
+                        MessageBox.Show("Данные успешно изменены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception ex)
                     {
@@ -85,15 +81,8 @@ namespace ARM_Engineer.Approval_status
                     }
                 }
            }
-           
             DialogResult = true;
             Close();
-            
-
-
-
-
-
         }
     }
 }

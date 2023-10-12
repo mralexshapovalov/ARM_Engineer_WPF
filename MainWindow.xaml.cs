@@ -1,5 +1,6 @@
 ﻿using ARM_Engineer.Approval_status;
 using ARM_Engineer.Database;
+using ARM_Engineer.Employee;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,13 @@ namespace ARM_Engineer
         {
             Approval_status_Windows approval_status = new Approval_status_Windows();
             approval_status.Show();
-        } 
+        }
+
+        private void Employee_Buton_Click(object sender, RoutedEventArgs e)
+        {
+            Employee_Window employee_Window = new Employee_Window();
+            employee_Window.Show();
+        }
     }
 
    
