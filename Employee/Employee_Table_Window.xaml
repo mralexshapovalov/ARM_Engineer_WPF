@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
         Title="Employee_Table_Window" Height="450" Width="483">
-    <DataGrid x:Name="Employee_Table_dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="Employee_Table_dataGrid_SelectionChanged">
+    <DataGrid x:Name="Employee_Table_dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick">
         <DataGrid.Columns>
             
             <DataGridTextColumn Binding="{Binding Path=Organization.Name}" Header="Organization" />
-         
+            
+            
         </DataGrid.Columns>
     </DataGrid>
     

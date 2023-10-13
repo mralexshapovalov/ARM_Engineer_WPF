@@ -39,16 +39,14 @@ namespace ARM_Engineer.Employee
                 {
                     list.Add(new Employee());
                     list.Last().ID = reader.GetInt32(0);
+                    list.Last().Service_number = reader.GetString(1);
                     list.Last().Name = reader.GetString(2);
-                    if (reader.IsDBNull(2))
-                    {
-                        list.Last().Division = null;
-                    }
-                    else
-                    {
-                        list.Last().Division = reader.GetString(2);
-                    }
-
+                    list.Last().Division = reader.GetString(3);
+                    list.Last().DataEmployee = reader.GetDateTime(4);
+                    list.Last().DateDismissial = reader.GetDateTime(5);
+                    list.Last().Post = reader.GetString(6);
+                    list.Last().ID_Orgainzation = reader.GetInt32(7);
+                    list.Last().YearOfBirth = reader.GetDateTime(8);
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
             }
@@ -57,6 +55,12 @@ namespace ARM_Engineer.Employee
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Employee_Window employee_Window = new Employee_Window();
+            employee_Window.Show();
         }
     }
 }
