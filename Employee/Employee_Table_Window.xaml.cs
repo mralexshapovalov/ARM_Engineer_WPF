@@ -1,7 +1,9 @@
 ﻿using ARM_Engineer.Database;
+using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace ARM_Engineer.Employee
 {
-    /// <summary>
-    /// Interaction logic for Employee_Table_Window.xaml
-    /// </summary>
     public partial class Employee_Table_Window : Window
     {
         List<Employee> list;
@@ -62,5 +61,8 @@ namespace ARM_Engineer.Employee
             Employee_Window employee_Window = new Employee_Window();
             employee_Window.Show();
         }
+
+       
+
     }
 }
