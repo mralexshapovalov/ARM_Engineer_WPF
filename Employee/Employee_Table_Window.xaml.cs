@@ -41,12 +41,12 @@ namespace ARM_Engineer.Employee
                     list.Last().ID = reader.GetInt32(0);
                     list.Last().Service_number = reader.GetString(1);
                     list.Last().Name = reader.GetString(2);
-                    list.Last().Division = reader.GetString(3);
-                    list.Last().DataEmployee = reader.GetDateTime(4);
-                    list.Last().DateDismissial = reader.GetDateTime(5);
-                    list.Last().Post = reader.GetString(6);
-                    list.Last().ID_Orgainzation = reader.GetInt32(7);
-                    list.Last().YearOfBirth = reader.GetDateTime(8);
+                    list.Last().DataEmployee = reader.GetDateTime(3);
+                    list.Last().DateDismissial = reader.GetDateTime(4);
+                    //list.Last().ID_Division = reader.GetInt32(7);
+                    //list.Last().ID_Post = reader.GetInt32(8);
+                    // list.Last().ID_Orgainzation = reader.GetInt32(7);
+                    //list.Last().YearOfBirth = reader.GetDateTime(8);
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
             }
