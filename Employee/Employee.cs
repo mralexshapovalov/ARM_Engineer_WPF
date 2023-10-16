@@ -7,7 +7,7 @@ using ARM_Engineer.Models;
 
 namespace ARM_Engineer.Employee
 {
-    class Employee
+   public class Employee
     {
         public int ID { get; set; }
         public string? Service_number { get; set; }

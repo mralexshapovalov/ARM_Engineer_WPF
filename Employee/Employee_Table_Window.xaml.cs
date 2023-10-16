@@ -1,4 +1,5 @@
-﻿using ARM_Engineer.Database;
+﻿using ARM_Engineer.Approval_status;
+using ARM_Engineer.Database;
 using ARM_Engineer.Models;
 using Npgsql;
 using System;
@@ -53,16 +54,34 @@ namespace ARM_Engineer.Employee
 
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (Employee_Table_dataGrid.SelectedItems.Count == 1)
+            {
+                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
+                employee_Window.Title = "Статус согласование(Изменить)";
+                employee_Window.ShowDialog();
+                if (employee_Window.DialogResult == true)
+                {
+                    Data_output();
+                }
+            }
         }
 
         private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Employee_Window employee_Window = new Employee_Window();
-            employee_Window.Show();
+            //Employee_Window employee_Window = new Employee_Window();
+            //employee_Window.Show();
         }
 
-       
+        private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Employee_Window employee_Window = new Employee_Window("Добавить", null);
+            employee_Window.Title = "Статус согласование(Добавить)";
+            employee_Window.ShowDialog();
 
+            if (employee_Window.DialogResult == true)
+            {
+                Data_output();
+            }
+        }
     }
 }
