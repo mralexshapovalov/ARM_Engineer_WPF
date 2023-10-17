@@ -22,8 +22,8 @@ namespace ARM_Engineer.Employee
     public partial class Employee_Window : Window
     {
         string openMode;
-        EmployeeCard model;
-        public Employee_Window(string openMode, EmployeeCard model)
+        Employee model;
+        public Employee_Window(string openMode, Employee model)
         {
             InitializeComponent();
 
@@ -39,7 +39,7 @@ namespace ARM_Engineer.Employee
                 Date_employment_DatePicker.SelectedDate = model.DataEmployee;
                 Date_deletion_DatePicker.SelectedDate = model.DateDismissial;
                 //  Post_Combobox.Text = model.ID_Post.ToString();
-                // Organization_Combobox.Text = model.Organization.ToString();
+                textBoxOrganization.Text = model.Name;
 
 
             }
@@ -50,16 +50,17 @@ namespace ARM_Engineer.Employee
             {
                 try
                 {
-                    NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"Service_number\", \"Name\",\"Date_Employee\",\"Date_dismissal\") " +
-                                                          "values(@Service_number,@Name,@Date_Employee,@Date_dismissal)",
+                    NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"service_number\", \"name\",\"date_employee\",\"date_dismissal\",\"id_organization\") " +
+                                                          "values(@service_number,@name,@date_employee,@date_dismissal,@id_organization)",
                                                           DataBase.Connection());
-                    cmd.Parameters.Add(new NpgsqlParameter("@Service_number", Table_number_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Name", Name_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Date_Employee", Date_employment_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                    //cmd.Parameters.Add(new NpgsqlParameter("@id_organization", textBoxOrganization.Text));
                     //cmd.Parameters.Add(new NpgsqlParameter("@ID_Division", Division_Combobox.Text));
-                    // cmd.Parameters.Add(new NpgsqlParameter("@ID_Post", Post_Combobox.Text));
-                    //cmd.Parameters.Add(new NpgsqlParameter("@ID_Organization", Organization_Combobox.Text));
+                    //cmd.Parameters.Add(new NpgsqlParameter("@ID_Post", Post_Combobox.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
                     //cmd.Parameters.Add(new NpgsqlParameter("@Year_birth", Output_last_name_first_name_patronymic_Label));
                     cmd.ExecuteNonQuery();
 
@@ -76,23 +77,19 @@ namespace ARM_Engineer.Employee
                 Title = "Статус согласование(Изменить)";
                 try
                 {
-                    NpgsqlCommand cmd = new NpgsqlCommand("update \"Employee\" SET \"Service_number\" = @Service_number,\"Name\"=@Name," +
-                        "\"Date_Employee\"=@Date_Employee,\"Date_dismissal\"=@Date_dismissal WHERE \"ID\" = @ID",
+                    NpgsqlCommand cmd = new NpgsqlCommand("update \"Employee\" SET \"service_number\" = @service_number,\"name\"=@name," +
+                        "\"date_employee\"=@date_employee,\"date_dismissal\"=@date_dismissal,\"id_organization\"=@id_organization WHERE \"id\" = @id",
                         DataBase.Connection());
-                   
-                    //cmd.Parameters.Add(new NpgsqlParameter("@Service_number", Table_number_TextBox));
-                    //cmd.Parameters.Add(new NpgsqlParameter("@Name", Name_TextBox.Text));
-                    ////cmd.Parameters.Add(new NpgsqlParameter("@ID_Division", Division_Combobox.Text));
-                    //cmd.Parameters.Add(new NpgsqlParameter("@Date_Employee", Date_employment_DatePicker.SelectedDate));
-                    //cmd.Parameters.Add(new NpgsqlParameter("@Date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                  
                     //cmd.Parameters.Add(new NpgsqlParameter("@ID_Post", Post_Combobox.Text));
-                    // cmd.Parameters.Add(new NpgsqlParameter("@ID_Organization", Organization_Combobox.Text));
+                     //cmd.Parameters.Add(new NpgsqlParameter("@ID_Organization", Organization_Combobox.Text));
                     // cmd.Parameters.Add(new NpgsqlParameter("@Year_birth", Output_last_name_first_name_patronymic_Label));
-                    cmd.Parameters.Add(new NpgsqlParameter("@ID", model.ID));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Service_number", Table_number_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Name", Name_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Date_Employee", Date_employment_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@Date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@id", model.ID));
+                    cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Данные успешно изменены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -122,6 +119,17 @@ namespace ARM_Engineer.Employee
             ChangeAndEmployee();
         }
 
-       
+        private void buttonOrganizationSelect_Click(object sender, RoutedEventArgs e)
+        {
+
+            OrganizationWindow organizationWindow = new OrganizationWindow();
+            organizationWindow.ShowDialog();
+
+            if (organizationWindow.DialogResult == true)
+            {
+                model.ID_Orgainzation = organizationWindow.selectedItem.ID;
+                textBoxOrganization.Text = model.Organization.Name;
+            }
+        }
     }
 }

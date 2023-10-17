@@ -23,7 +23,7 @@ namespace ARM_Engineer.Approval_status
 {
     public partial class Approval_status_Windows : Window
     {
-        List<Approval_status> list;
+        List<ApprovalStatus> list;
         public Approval_status_Windows()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -32,14 +32,14 @@ namespace ARM_Engineer.Approval_status
         }
         void Data_output()
         {
-            list = new List<Approval_status>();
+            list = new List<ApprovalStatus>();
             NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Approval_status\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Approval_status());
+                    list.Add(new ApprovalStatus());
                     list.Last().ID = reader.GetInt32(0);
                     list.Last().Name = reader.GetString(1);
                     if (reader.IsDBNull(2))
@@ -78,7 +78,7 @@ namespace ARM_Engineer.Approval_status
         {
             if (dataGrid_Approval_status.SelectedItems.Count == 1)
             {
-                Approval_status_add approval_Status_Add = new Approval_status_add("Изменить", (Approval_status)dataGrid_Approval_status.SelectedItems[0]);
+                Approval_status_add approval_Status_Add = new Approval_status_add("Изменить", (ApprovalStatus)dataGrid_Approval_status.SelectedItems[0]);
                 approval_Status_Add.Title = "Статус согласование(Изменить)";
                 approval_Status_Add.ShowDialog();
                 if (approval_Status_Add.DialogResult == true)
@@ -91,11 +91,11 @@ namespace ARM_Engineer.Approval_status
         {
             if (MessageBox.Show("Вы действительно хотите удалить данную строку?", "Уведомление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                Approval_status request = dataGrid_Approval_status.SelectedItem as Approval_status;
-                string commandText = $"DELETE FROM \"Approval_status\" WHERE \"ID\"=(@p)";
+                ApprovalStatus request = dataGrid_Approval_status.SelectedItem as ApprovalStatus;
+                string commandText = $"DELETE FROM \"Approval_status\" WHERE \"ID\"=(@id)";
                 using (var cmd = new NpgsqlCommand(commandText, DataBase.Connection()))
                 {
-                    cmd.Parameters.AddWithValue("p", request.ID);
+                    cmd.Parameters.AddWithValue("@id", request.ID);
                     cmd.ExecuteNonQuery();
                 }
                 Data_output();

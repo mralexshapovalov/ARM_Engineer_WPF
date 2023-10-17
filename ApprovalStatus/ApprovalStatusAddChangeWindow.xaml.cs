@@ -23,9 +23,9 @@ namespace ARM_Engineer.Approval_status
     public partial class Approval_status_add : Window
     {
         string openMode;
-        Approval_status model;
+        ApprovalStatus model;
        
-        public Approval_status_add(string openMode, Approval_status model)
+        public Approval_status_add(string openMode, ApprovalStatus model)
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
@@ -47,9 +47,9 @@ namespace ARM_Engineer.Approval_status
                 {
                     try
                     {
-                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@Name,@Description)", DataBase.Connection());
-                        cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
-                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Name_Approval_status.Text));
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Approval_status\" (\"Name\", \"Description\") values(@name,@description)", DataBase.Connection());
+                        cmd.Parameters.Add(new NpgsqlParameter("name", textBox_Name_Approval_status.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@description", textBox_Name_Approval_status.Text));
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -67,10 +67,10 @@ namespace ARM_Engineer.Approval_status
                     Title = "Статус согласование(Изменить)";
                     try
                     {
-                        NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @Name,\"Description\"=@Description WHERE \"ID\" = @ID", DataBase.Connection());
-                        cmd.Parameters.Add(new NpgsqlParameter("@ID", model.ID));
-                        cmd.Parameters.Add(new NpgsqlParameter("@Name", textBox_Name_Approval_status.Text));
-                        cmd.Parameters.Add(new NpgsqlParameter("@Description", textBox_Description_Approval_status.Text));
+                        NpgsqlCommand cmd = new NpgsqlCommand("update \"Approval_status\" SET \"Name\" = @name,\"Description\"=@description WHERE \"ID\" = @id", DataBase.Connection());
+                        cmd.Parameters.Add(new NpgsqlParameter("@id", model.ID));
+                        cmd.Parameters.Add(new NpgsqlParameter("@name", textBox_Name_Approval_status.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@description", textBox_Description_Approval_status.Text));
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Данные успешно изменены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);

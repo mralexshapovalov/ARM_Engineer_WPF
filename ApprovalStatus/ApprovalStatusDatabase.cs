@@ -10,7 +10,7 @@ using System.Windows.Documents;
 
 namespace ARM_Engineer.Approval_status
 {
-    class Approval_statusDataBase
+    class ApprovalStatusDataBase
     {
        
     }

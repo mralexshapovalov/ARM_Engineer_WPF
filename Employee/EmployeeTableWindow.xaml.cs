@@ -17,12 +17,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-
 namespace ARM_Engineer.Employee
 {
     public partial class Employee_Table_Window : Window
     {
-        List<EmployeeCard> list;
+        List<Employee> list;
         public Employee_Table_Window()
         {
             InitializeComponent();
@@ -31,23 +30,23 @@ namespace ARM_Engineer.Employee
 
         void Data_output()
         {
-            list = new List<EmployeeCard>();
+            list = new List<Employee>();
             NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new EmployeeCard());
-                    list.Last().ID = reader.GetInt32(0);
-                    list.Last().Service_number = reader.GetString(1);
-                    list.Last().Name = reader.GetString(2);
-                    list.Last().DataEmployee = reader.GetDateTime(3);
-                    list.Last().DateDismissial = reader.GetDateTime(4);
-                    //list.Last().ID_Division = reader.GetInt32(7);
-                    //list.Last().ID_Post = reader.GetInt32(8);
-                    // list.Last().ID_Orgainzation = reader.GetInt32(7);
-                    //list.Last().YearOfBirth = reader.GetDateTime(8);
+                    list.Add(new Employee());
+                    list.Last().ID = reader.GetInt32("id");
+                    list.Last().Service_number = reader.GetString("service_number");
+                    list.Last().Name = reader.GetString("name");
+                    list.Last().DataEmployee = reader.GetDateTime("date_employee");
+                    list.Last().DateDismissial = reader.GetDateTime("date_dismissal");
+                    list.Last().ID_Orgainzation = reader.GetInt32("id_organization");
+                    list.Last().YearOfBirth = reader.GetDateTime("year_birth");
+                    list.Last().ID_Division = reader.GetInt32("id_division");
+                    list.Last().ID_Post = reader.GetInt32("id_post");  
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
             }
@@ -57,7 +56,7 @@ namespace ARM_Engineer.Employee
         {
             if (Employee_Table_dataGrid.SelectedItems.Count == 1)
             {
-                Employee_Window employee_Window = new Employee_Window("Изменить", (EmployeeCard)Employee_Table_dataGrid.SelectedItems[0]);
+                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
                 employee_Window.Title = "Статус согласование(Изменить)";
                 employee_Window.ShowDialog();
                 if (employee_Window.DialogResult == true)
@@ -75,7 +74,7 @@ namespace ARM_Engineer.Employee
 
         private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
         {
-            Employee_Window employee_Window = new Employee_Window("Добавить", null);
+            Employee_Window employee_Window = new Employee_Window("Добавить", new Employee());
             employee_Window.Title = "Статус согласование(Добавить)";
             employee_Window.ShowDialog();
 

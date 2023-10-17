@@ -61,9 +61,73 @@ namespace ARM_Engineer.Database
             return org;
         }
 
+        static public List<Division> GetAllDivision()
+        {
+            List<Division> list = new List<Division>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\"", DataBase.Connection());
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new Division());
+                    list.Last().ID = reader.GetInt32(0);
+                    list.Last().Name = reader.GetString(1);
+                }
+            }
 
+            return list;
+        }
 
+        static public Division GetDivisionByID(int id)
+        {
+            Division division = new Division();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\" Where \"id\" = " + id, DataBase.Connection());
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                reader.Read();
+                division.ID = reader.GetInt32(0);
+                division.Name = reader.GetString(1);
 
+            }
+
+            return division;
+        }
+
+        static public List<Post> GetAllPost()
+        {
+            List<Post> list = new List<Post>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Post\"", DataBase.Connection());
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new Post());
+                    list.Last().ID = reader.GetInt32(0);
+                    list.Last().Name = reader.GetString(1);
+                }
+            }
+
+            return list;
+        }
+
+        static public Post GetPostByID(int id)
+        {
+            Post post = new Post();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Post\" Where \"id\" = " + id, DataBase.Connection());
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                reader.Read();
+                post.ID = reader.GetInt32(0);
+                post.Name = reader.GetString(1);
+
+            }
+
+            return post;
+        }
 
     }
 }
