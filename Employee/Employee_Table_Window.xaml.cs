@@ -17,11 +17,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace ARM_Engineer.Employee
 {
     public partial class Employee_Table_Window : Window
     {
-        List<Employee> list;
+        List<EmployeeCard> list;
         public Employee_Table_Window()
         {
             InitializeComponent();
@@ -30,14 +31,14 @@ namespace ARM_Engineer.Employee
 
         void Data_output()
         {
-            list = new List<Employee>();
+            list = new List<EmployeeCard>();
             NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Employee());
+                    list.Add(new EmployeeCard());
                     list.Last().ID = reader.GetInt32(0);
                     list.Last().Service_number = reader.GetString(1);
                     list.Last().Name = reader.GetString(2);
@@ -56,7 +57,7 @@ namespace ARM_Engineer.Employee
         {
             if (Employee_Table_dataGrid.SelectedItems.Count == 1)
             {
-                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
+                Employee_Window employee_Window = new Employee_Window("Изменить", (EmployeeCard)Employee_Table_dataGrid.SelectedItems[0]);
                 employee_Window.Title = "Статус согласование(Изменить)";
                 employee_Window.ShowDialog();
                 if (employee_Window.DialogResult == true)

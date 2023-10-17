@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <TextBox x:Name="textBox_Name_Approval_status" x:FieldModifier="public" HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="18 
                  "/>
-        <TextBox x:Name="textBox_Description_Approval_status" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="18" x:FieldModifier="public"/>
+        <TextBox x:Name="textBox_Description_Approval_status" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="18" />
         <Label Content="Имя" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Width="53" Height="26"/>
         <Label Content="Описание" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Width="71" Height="26"/>
         <Button x:Name="button_Save_Approval_status" Content="Сохранить" HorizontalAlignment="Left" Margin="135,58,0,0" VerticalAlignment="Top" Click="button_Save_Approval_status_Click" Grid.Row="2" Height="20" Width="62"/>

@@ -22,8 +22,8 @@ namespace ARM_Engineer.Employee
     public partial class Employee_Window : Window
     {
         string openMode;
-        Employee model;
-        public Employee_Window(string openMode, Employee model)
+        EmployeeCard model;
+        public Employee_Window(string openMode, EmployeeCard model)
         {
             InitializeComponent();
 
@@ -121,5 +121,7 @@ namespace ARM_Engineer.Employee
         {
             ChangeAndEmployee();
         }
+
+       
     }
 }
