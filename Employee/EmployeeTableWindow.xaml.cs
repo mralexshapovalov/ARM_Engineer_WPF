@@ -46,12 +46,11 @@ namespace ARM_Engineer.Employee
                     list.Last().ID_Orgainzation = reader.GetInt32("id_organization");
                     list.Last().YearOfBirth = reader.GetDateTime("year_birth");
                     list.Last().ID_Division = reader.GetInt32("id_division");
-                    list.Last().ID_Post = reader.GetInt32("id_post");  
+                    list.Last().ID_Post = reader.GetInt32("id_post");
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
             }
         }
-
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (Employee_Table_dataGrid.SelectedItems.Count == 1)
@@ -65,13 +64,11 @@ namespace ARM_Engineer.Employee
                 }
             }
         }
-
         private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //Employee_Window employee_Window = new Employee_Window();
             //employee_Window.Show();
         }
-
         private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
         {
             Employee_Window employee_Window = new Employee_Window("Добавить", new Employee());

@@ -1,4 +1,5 @@
 ﻿using ARM_Engineer.Database;
+using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -13,53 +14,50 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ARM_Engineer.Models;
 using System.Data;
 
 namespace ARM_Engineer.Employee
 {
-    public partial class OrganizationWindow : Window
+    public partial class PostWindow : Window
     {
-        public Organization selectedItem;
-        List<Organization> list;
-        public OrganizationWindow()
+        public Post selectedItem;
+        List<Post> list;
+        public PostWindow()
         {
             InitializeComponent();
             Data_output();
         }
 
-
         void Data_output()
         {
-            list = new List<Organization>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Organization\"", DataBase.Connection());
+            list = new List<Post>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Post\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Organization());
+                    list.Add(new Post());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGrid_Organization.ItemsSource = list;
+                dataGrid_Post.ItemsSource = list;
             }
+        }
+        private void dataGrid_Post_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
         private void button_select_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGrid_Organization.SelectedItems.Count == 1)
+            if (dataGrid_Post.SelectedItems.Count == 1)
             {
-                selectedItem = (Organization)dataGrid_Organization.SelectedItems[0];
+                selectedItem = (Post)dataGrid_Post.SelectedItems[0];
                 DialogResult = true;
                 Close();
-
             }
-        }
-
-        private void dataGrid_Organization_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
+

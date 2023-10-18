@@ -1,4 +1,5 @@
 ﻿using ARM_Engineer.Database;
+using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -13,53 +14,47 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ARM_Engineer.Models;
 using System.Data;
 
 namespace ARM_Engineer.Employee
 {
-    public partial class OrganizationWindow : Window
+    /// <summary>
+    /// Логика взаимодействия для DivisionWindow.xaml
+    /// </summary>
+    public partial class DivisionWindow : Window
     {
-        public Organization selectedItem;
-        List<Organization> list;
-        public OrganizationWindow()
+        public Division selectedItem;
+        List<Division> list;
+        public DivisionWindow()
         {
             InitializeComponent();
             Data_output();
         }
-
-
         void Data_output()
         {
-            list = new List<Organization>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Organization\"", DataBase.Connection());
+            list = new List<Division>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Organization());
+                    list.Add(new Division());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGrid_Organization.ItemsSource = list;
+               dataGridDivision.ItemsSource = list;
             }
         }
 
-        private void button_select_Click(object sender, RoutedEventArgs e)
+        private void buttonSelected_Click(object sender, RoutedEventArgs e)
         {
-            if (dataGrid_Organization.SelectedItems.Count == 1)
+            if (dataGridDivision.SelectedItems.Count == 1)
             {
-                selectedItem = (Organization)dataGrid_Organization.SelectedItems[0];
+                selectedItem = (Division)dataGridDivision.SelectedItems[0];
                 DialogResult = true;
                 Close();
-
             }
-        }
-
-        private void dataGrid_Organization_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
