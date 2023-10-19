@@ -8,9 +8,13 @@
         Title="Employee_Table_Window" Height="450" Width="813">
     
     <Grid>
-        <DataGrid x:Name="Employee_Table_dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" Margin="0,39,10,10">
-            <DataGrid.Columns>
+        <DataGrid x:Name="Employee_Table_dataGrid" d:ItemsSource="{d:SampleData ItemCount=5 }" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" 
+                  MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" Margin="0,39,10,10" AutoGenerateColumns="True" 
+   ItemsSource="{Binding}" AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn">
+
+        <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Organization.Name}" Header="Organization" />
+
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Add_Employee_Button" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click"/>

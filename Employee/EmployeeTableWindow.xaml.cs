@@ -22,6 +22,7 @@ namespace ARM_Engineer.Employee
     public partial class Employee_Table_Window : Window
     {
         List<Employee> list;
+
         public Employee_Table_Window()
         {
             InitializeComponent();
@@ -49,10 +50,14 @@ namespace ARM_Engineer.Employee
                     list.Last().ID_Post = reader.GetInt32("id_post");
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
+               
             }
+            
+            
         }
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
             if (Employee_Table_dataGrid.SelectedItems.Count == 1)
             {
                 Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
@@ -61,6 +66,7 @@ namespace ARM_Engineer.Employee
                 if (employee_Window.DialogResult == true)
                 {
                     Data_output();
+                    
                 }
             }
         }
@@ -79,6 +85,11 @@ namespace ARM_Engineer.Employee
             {
                 Data_output();
             }
+        }
+
+        private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            ((DataGridTextColumn)Employee_Table_dataGrid.Columns[4]).Binding.StringFormat = "d";
         }
     }
 }

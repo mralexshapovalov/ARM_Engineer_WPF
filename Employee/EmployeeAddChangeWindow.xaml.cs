@@ -76,7 +76,8 @@ namespace ARM_Engineer.Employee
                 try
                 {
                     NpgsqlCommand cmd = new NpgsqlCommand("update \"Employee\" SET \"service_number\" = @service_number,\"name\"=@name," +
-                        "\"date_employee\"=@date_employee,\"date_dismissal\"=@date_dismissal,\"id_organization\"=@id_organization,\"year_birth\" = @year_birth,\"id_division\"=@id_division,\"id_post\"=@id_post  WHERE \"id\" = @id",
+                        "\"date_employee\"=@date_employee,\"date_dismissal\"=@date_dismissal,\"id_organization\"=@id_organization,\"year_birth\" = @year_birth," +
+                        "\"id_division\"=@id_division,\"id_post\"=@id_post  WHERE \"id\" = @id",
                         DataBase.Connection());
                     cmd.Parameters.Add(new NpgsqlParameter("@id", model.ID));
                     cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));

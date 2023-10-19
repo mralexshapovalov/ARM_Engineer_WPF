@@ -10,6 +10,5 @@ namespace ARM_Engineer.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-
     }
 }
