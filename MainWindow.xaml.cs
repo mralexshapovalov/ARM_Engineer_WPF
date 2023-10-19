@@ -40,9 +40,4 @@ namespace ARM_Engineer
             employee_Table_Window.Show();
         }
     }
-
-   
-
-
-
 }
