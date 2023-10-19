@@ -31,8 +31,33 @@ namespace ARM_Engineer.Employee
 
         void Data_output()
         {
+            string filter ="";
+            List<string> filters = new List<string>();
+            if(textBoxFilterName.Text != "")
+            {
+                filters.Add("\"name\" = "+"\"" + textBoxFilterName.Text+"\"");
+            }
+
+            for(int i=0; i < filters.Count; i++)
+            {
+                if (i == filters.Count - 1)
+                {
+                    filter = filter + filters[i];
+                }
+                else
+                {
+                    filter = filter + filters[i] + " AND ";
+                }
+            }
+
+            if(filter != "")
+            {
+                filter = "WHERE " + filter;
+            }
+
+
             list = new List<Employee>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"", DataBase.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"" + filter, DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
@@ -51,9 +76,7 @@ namespace ARM_Engineer.Employee
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
                
-            }
-            
-            
+            } 
         }
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -66,7 +89,6 @@ namespace ARM_Engineer.Employee
                 if (employee_Window.DialogResult == true)
                 {
                     Data_output();
-                    
                 }
             }
         }
@@ -89,7 +111,12 @@ namespace ARM_Engineer.Employee
 
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            ((DataGridTextColumn)Employee_Table_dataGrid.Columns[4]).Binding.StringFormat = "d";
+            
+        }
+
+        private void ApplyFilters_Click(object sender, RoutedEventArgs e)
+        {
+            Data_output();
         }
     }
 }

@@ -49,20 +49,30 @@ namespace ARM_Engineer.Employee
             {
                 try
                 {
-                    NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"service_number\", \"name\",\"date_employee\",\"date_dismissal\",\"id_organization\",\"year_birth\",\"id_division\",\"id_post\" ) " +
-                                                          "values(@service_number,@name,@date_employee,@date_dismissal,@id_organization,@year_birth,@id_division,@id_post)",
-                                                          DataBase.Connection());
-                    cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
-                    cmd.Parameters.Add(new NpgsqlParameter("@year_birth", DateYearBirth_employment_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@id_division", model.ID_Division));
-                    cmd.Parameters.Add(new NpgsqlParameter("@id_post", model.ID_Post));
-                    cmd.ExecuteNonQuery();
+                    if(Date_employment_DatePicker.SelectedDate < Date_deletion_DatePicker.SelectedDate)
+                    {
+                        NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"service_number\", \"name\",\"date_employee\",\"date_dismissal\",\"id_organization\",\"year_birth\",\"id_division\",\"id_post\" ) " +
+                                                         "values(@service_number,@name,@date_employee,@date_dismissal,@id_organization,@year_birth,@id_division,@id_post)",
+                                                         DataBase.Connection());
+                        cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
+                        cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                        cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
+                        cmd.Parameters.Add(new NpgsqlParameter("@year_birth", DateYearBirth_employment_DatePicker.SelectedDate));
+                        cmd.Parameters.Add(new NpgsqlParameter("@id_division", model.ID_Division));
+                        cmd.Parameters.Add(new NpgsqlParameter("@id_post", model.ID_Post));
+                        cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Данные успешно сохранены!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Дата увольнение не может быть раньше даты приема на работу!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+
+                   
                 }
                 catch (Exception ex)
                 {
@@ -103,7 +113,7 @@ namespace ARM_Engineer.Employee
         private void Record_close_Button_Click(object sender, RoutedEventArgs e)
         {
             ChangeAndEmployee();
-            Close();
+            
         }
 
         private void Organization_Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
