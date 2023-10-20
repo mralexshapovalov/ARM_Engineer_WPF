@@ -75,12 +75,11 @@ namespace ARM_Engineer.Employee
                     list.Last().ID_Post = reader.GetInt32("id_post");
                 }
                 Employee_Table_dataGrid.ItemsSource = list;
-               
             } 
         }
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+     
             if (Employee_Table_dataGrid.SelectedItems.Count == 1)
             {
                 Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
@@ -111,7 +110,14 @@ namespace ARM_Engineer.Employee
 
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            
+            for (int i = 0; i < Employee_Table_dataGrid.Columns.Count; i++)
+            {
+                if (i > 7)
+                {
+                    Employee_Table_dataGrid.Columns[i].Visibility = Visibility.Collapsed;
+                }
+            }
+            //Employee_Table_dataGrid.Columns[Employee_Table_dataGrid.Columns.Count].Visibility = Visibility.Collapsed;
         }
 
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)

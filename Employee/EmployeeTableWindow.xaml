@@ -17,8 +17,15 @@
    ItemsSource="{Binding}" AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn" Grid.ColumnSpan="2"  >
 
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Organization.Name}" Header="Organization" />
-                <DataGridTextColumn Binding="{Binding DataEmployee, StringFormat=\{0:dd.MM.yyyy\}}" />
+
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding YearOfBirth, StringFormat=\{0:dd.MM.yyyy\}}" Header="YearOfBirth" />
+                <DataGridTextColumn Binding="{Binding DataEmployee, StringFormat=\{0:dd.MM.yyyy\}}" Header="DateEmployee" />
+                <DataGridTextColumn Binding="{Binding DateDismissial, StringFormat=\{0:dd.MM.yyyy\}}" Header="DateDismissial" />
+                <DataGridTextColumn Binding="{Binding Organization.Name}" Header="Organization" />
+                <DataGridTextColumn Binding="{Binding Division.Name}" Header="Division" />
+                <DataGridTextColumn Binding="{Binding Post.Name}" Header="Post" />
 
 
             </DataGrid.Columns>
