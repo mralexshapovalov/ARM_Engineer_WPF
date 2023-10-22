@@ -5,34 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="Employee_Table_Window" Height="450" Width="813">
+        Title="Employee_Table_Window" Height="648" Width="897">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="195*"/>
-            <ColumnDefinition Width="619*"/>
+            <ColumnDefinition Width="58*"/>
+            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Employee_Table_dataGrid" d:ItemsSource="{d:SampleData ItemCount=5 }" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" 
-                  MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" Margin="0,56,10,10" AutoGenerateColumns="True" 
-   ItemsSource="{Binding}" AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn" Grid.ColumnSpan="2"  >
+        <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=5 }" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" 
+                  ColumnWidth="*"
+                  MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" 
+                  Margin="0,56,0,10" 
+                  AutoGenerateColumns="False" 
+                  ItemsSource="{Binding}" 
+                  AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn" 
+                  Grid.ColumnSpan="3" SelectedIndex="0" 
+                  ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
+                  AlternatingRowBackground="LightGray" 
+                  GridLinesVisibility="None" FontFamily="Arial">
 
             <DataGrid.Columns>
-
-                <DataGridTextColumn Binding="{Binding ID}" Header="ID" />
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
-                <DataGridTextColumn Binding="{Binding YearOfBirth, StringFormat=\{0:dd.MM.yyyy\}}" Header="YearOfBirth" />
-                <DataGridTextColumn Binding="{Binding DataEmployee, StringFormat=\{0:dd.MM.yyyy\}}" Header="DateEmployee" />
-                <DataGridTextColumn Binding="{Binding DateDismissial, StringFormat=\{0:dd.MM.yyyy\}}" Header="DateDismissial" />
-                <DataGridTextColumn Binding="{Binding Organization.Name}" Header="Organization" />
-                <DataGridTextColumn Binding="{Binding Division.Name}" Header="Division" />
-                <DataGridTextColumn Binding="{Binding Post.Name}" Header="Post" />
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" Width="300" />
+                <DataGridTextColumn Binding="{Binding YearOfBirth, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата рождения" Width="200" />
+                <DataGridTextColumn Binding="{Binding DataEmployee, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата приема на работу" Width="200" />
+                <DataGridTextColumn Binding="{Binding DateDismissial, StringFormat=\{0:dd.MM.yyyy\}}" Header="Дата увольнения" Width="200"/>
+                <DataGridTextColumn Binding="{Binding Organization.Name}" Header="Организация" Width="200" />
+                <DataGridTextColumn Binding="{Binding Division.Name}" Header="Текущее подразделение организации" Width="300" />
+                <DataGridTextColumn Binding="{Binding Post.Name}" Header="Текущая должность организации" Width="450" />
 
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Add_Employee_Button" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click"/>
-        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2"/>
-        <Button x:Name="ApplyFilters"  Content="Применить" HorizontalAlignment="Left" Margin="156,22,0,0" VerticalAlignment="Top" Height="18" Click="ApplyFilters_Click" Grid.Column="1"/>
+        <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>
+        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18"/>
+        <Button x:Name="ApplyFilters"  Content="Применить" HorizontalAlignment="Left" Margin="156,22,0,0" VerticalAlignment="Top" Height="18" Click="ApplyFilters_Click" Grid.Column="1" Width="66"/>
         <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
 
     </Grid>

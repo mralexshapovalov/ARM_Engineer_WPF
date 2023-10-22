@@ -32,15 +32,15 @@ namespace ARM_Engineer.Employee
 
             if (openMode == "Изменить")
             {
-                Output_last_name_first_name_patronymic_Label.Content = model.Name;
-                Table_number_TextBox.Text = model.Service_number;
-                Name_TextBox.Text = model.Name;
-                Date_employment_DatePicker.SelectedDate = model.DataEmployee;
-                Date_deletion_DatePicker.SelectedDate = model.DateDismissial;
+                labelOutputLastnameFirstnamePatronymic.Content = model.Name;
+                textBoxTableNumber.Text = model.Service_number;
+                textBoxName.Text = model.Name;
+                datePickerDateEmployment.SelectedDate = model.DataEmployee;
+                datePickerDateDeletion.SelectedDate = model.DateDismissial;
                 DateYearBirth_employment_DatePicker.SelectedDate = model.YearOfBirth;
                 textBoxOrganization.Text = model.Organization.Name;
-                textBoxPost.Text = model.Post.Name;
                 textBoxDivision.Text = model.Division.Name;
+                textBoxPost.Text = model.Post.Name;
             }
         }
         void ChangeAndEmployee()
@@ -49,15 +49,15 @@ namespace ARM_Engineer.Employee
             {
                 try
                 {
-                    if(Date_employment_DatePicker.SelectedDate < Date_deletion_DatePicker.SelectedDate)
+                    if(datePickerDateEmployment.SelectedDate < datePickerDateDeletion.SelectedDate)
                     {
                         NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"service_number\", \"name\",\"date_employee\",\"date_dismissal\",\"id_organization\",\"year_birth\",\"id_division\",\"id_post\" ) " +
                                                          "values(@service_number,@name,@date_employee,@date_dismissal,@id_organization,@year_birth,@id_division,@id_post)",
                                                          DataBase.Connection());
-                        cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
-                        cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
-                        cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
-                        cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                        cmd.Parameters.Add(new NpgsqlParameter("@service_number", textBoxTableNumber.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@name", textBoxName.Text));
+                        cmd.Parameters.Add(new NpgsqlParameter("@date_employee", datePickerDateEmployment.SelectedDate));
+                        cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", datePickerDateDeletion.SelectedDate));
                         cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
                         cmd.Parameters.Add(new NpgsqlParameter("@year_birth", DateYearBirth_employment_DatePicker.SelectedDate));
                         cmd.Parameters.Add(new NpgsqlParameter("@id_division", model.ID_Division));
@@ -90,10 +90,10 @@ namespace ARM_Engineer.Employee
                         "\"id_division\"=@id_division,\"id_post\"=@id_post  WHERE \"id\" = @id",
                         DataBase.Connection());
                     cmd.Parameters.Add(new NpgsqlParameter("@id", model.ID));
-                    cmd.Parameters.Add(new NpgsqlParameter("@service_number", Table_number_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@name", Name_TextBox.Text));
-                    cmd.Parameters.Add(new NpgsqlParameter("@date_employee", Date_employment_DatePicker.SelectedDate));
-                    cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", Date_deletion_DatePicker.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@service_number", textBoxTableNumber.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@name", textBoxName.Text));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_employee", datePickerDateEmployment.SelectedDate));
+                    cmd.Parameters.Add(new NpgsqlParameter("@date_dismissal", datePickerDateDeletion.SelectedDate));
                     cmd.Parameters.Add(new NpgsqlParameter("@id_organization", model.ID_Orgainzation));
                     cmd.Parameters.Add(new NpgsqlParameter("@year_birth", model.YearOfBirth));
                     cmd.Parameters.Add(new NpgsqlParameter("@id_division", model.ID_Division));

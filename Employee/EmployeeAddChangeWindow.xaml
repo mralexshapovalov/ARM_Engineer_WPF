@@ -11,16 +11,16 @@
             <RowDefinition Height="28*"/>
             <RowDefinition Height="107*"/>
         </Grid.RowDefinitions>
-        <Label  x:Name="Output_last_name_first_name_patronymic_Label" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Width="489" Height="41" FontSize="24" FontWeight="Bold" x:FieldModifier="public"/>
-        <TextBox x:Name="Table_number_TextBox"  HorizontalAlignment="Left" Margin="155,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Height="23" Grid.Row="1" x:FieldModifier="public"/>
-        <Label x:Name="Servic_Number_Label" Content="Табельный номер :" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" x:FieldModifier="public"/>
-        <Label x:Name="Name_Label" Content="Наименование :" HorizontalAlignment="Left" Margin="26,65,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" x:FieldModifier="public"/>
-        <TextBox x:Name="Name_TextBox" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="22" Grid.Row="1" x:FieldModifier="public"/>
-        <Button x:Name="Record_close_Button" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="22,56,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="Record_close_Button_Click" x:FieldModifier="public"/>
-        <Button x:Name="Record_Button" Content="Записать" HorizontalAlignment="Left" Margin="167,56,0,0" VerticalAlignment="Top" Width="79" Height="22" Click="Record_Button_Click" x:FieldModifier="public" />
-        <DatePicker x:Name="Date_employment_DatePicker" HorizontalAlignment="Left" Margin="175,133,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" x:FieldModifier="public" />
+        <Label  x:Name="labelOutputLastnameFirstnamePatronymic" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top" Width="489" Height="41" FontSize="24" FontWeight="Bold" x:FieldModifier="public"/>
+        <TextBox x:Name="textBoxTableNumber"  HorizontalAlignment="Left" Margin="155,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Height="23" Grid.Row="1" x:FieldModifier="public"/>
+        <Label x:Name="labelServicNumber" Content="Табельный номер :" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" x:FieldModifier="public"/>
+        <Label x:Name="labelName" Content="Наименование :" HorizontalAlignment="Left" Margin="26,65,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" x:FieldModifier="public"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="22" Grid.Row="1" x:FieldModifier="public"/>
+        <Button x:Name="buttoRecordClose" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="22,56,0,0" VerticalAlignment="Top" Width="118" Height="22" Click="Record_close_Button_Click" x:FieldModifier="public"/>
+        <Button x:Name="buttonRecord" Content="Записать" HorizontalAlignment="Left" Margin="167,56,0,0" VerticalAlignment="Top" Width="79" Height="22" Click="Record_Button_Click" x:FieldModifier="public" />
+        <DatePicker x:Name="datePickerDateEmployment" HorizontalAlignment="Left" Margin="175,133,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" x:FieldModifier="public" />
         <Label  Content="Дата приема на работу :" HorizontalAlignment="Left" Margin="26,130,0,0" VerticalAlignment="Top" Width="158" Grid.Row="1"  />
-        <DatePicker x:Name="Date_deletion_DatePicker" HorizontalAlignment="Left" Margin="175,162,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1"/>
+        <DatePicker x:Name="datePickerDateDeletion" HorizontalAlignment="Left" Margin="175,162,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1"/>
         <Label Content="Дата увольнения :&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,162,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1"  />
         <Label Content="Организация :" HorizontalAlignment="Left" Margin="26,197,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" />
         <Label Content="Должность: " HorizontalAlignment="Left" Margin="26,259,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1"  />

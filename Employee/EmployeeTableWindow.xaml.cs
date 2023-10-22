@@ -28,7 +28,6 @@ namespace ARM_Engineer.Employee
             InitializeComponent();
             Data_output();
         }
-
         void Data_output()
         {
             string filter ="";
@@ -74,15 +73,14 @@ namespace ARM_Engineer.Employee
                     list.Last().ID_Division = reader.GetInt32("id_division");
                     list.Last().ID_Post = reader.GetInt32("id_post");
                 }
-                Employee_Table_dataGrid.ItemsSource = list;
+                dataGridEmployeeTable.ItemsSource = list;
             } 
         }
         private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-     
-            if (Employee_Table_dataGrid.SelectedItems.Count == 1)
+            if (dataGridEmployeeTable.SelectedItems.Count == 1)
             {
-                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)Employee_Table_dataGrid.SelectedItems[0]);
+                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)dataGridEmployeeTable.SelectedItems[0]);
                 employee_Window.Title = "Статус согласование(Изменить)";
                 employee_Window.ShowDialog();
                 if (employee_Window.DialogResult == true)
@@ -110,14 +108,15 @@ namespace ARM_Engineer.Employee
 
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            for (int i = 0; i < Employee_Table_dataGrid.Columns.Count; i++)
+
+            for(int i = dataGridEmployeeTable.Columns.Count-1; i >= 0; i--)
             {
-                if (i > 7)
+                if(i > 7)
                 {
-                    Employee_Table_dataGrid.Columns[i].Visibility = Visibility.Collapsed;
+                    dataGridEmployeeTable.Columns.RemoveAt(dataGridEmployeeTable.Columns.Count-1);
                 }
             }
-            //Employee_Table_dataGrid.Columns[Employee_Table_dataGrid.Columns.Count].Visibility = Visibility.Collapsed;
+            
         }
 
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
