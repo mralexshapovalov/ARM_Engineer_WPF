@@ -13,7 +13,7 @@
             <ColumnDefinition Width="191*"/>
             <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=5 }" SelectionChanged="Employee_Table_dataGrid_SelectionChanged" IsReadOnly="True" 
+        <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=5 }" IsReadOnly="True" 
                   ColumnWidth="*"
                   MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" 
                   Margin="0,56,0,10" 
@@ -23,7 +23,7 @@
                   Grid.ColumnSpan="3" SelectedIndex="0" 
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
                   AlternatingRowBackground="LightGray" 
-                  GridLinesVisibility="None" FontFamily="Arial">
+                  GridLinesVisibility="None" FontFamily="Arial" MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>

@@ -5,6 +5,7 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,8 @@ namespace ARM_Engineer.Employee
     public partial class Employee_Table_Window : Window
     {
         List<Employee> list;
-
+        DataTable dataTable;
+        NpgsqlDataAdapter dataAdapter;
         public Employee_Table_Window()
         {
             InitializeComponent();
@@ -30,33 +32,33 @@ namespace ARM_Engineer.Employee
         }
         void Data_output()
         {
-            string filter ="";
-            List<string> filters = new List<string>();
-            if(textBoxFilterName.Text != "")
-            {
-                filters.Add("\"name\" = "+"\"" + textBoxFilterName.Text+"\"");
-            }
+            //string filter ="";
+            //List<string> filters = new List<string>();
+            //if(textBoxFilterName.Text != "")
+            //{
+            //    filters.Add("\"name\" = "+"\"" + textBoxFilterName.Text+"\"");
+            //}
 
-            for(int i=0; i < filters.Count; i++)
-            {
-                if (i == filters.Count - 1)
-                {
-                    filter = filter + filters[i];
-                }
-                else
-                {
-                    filter = filter + filters[i] + " AND ";
-                }
-            }
+            //for(int i=0; i < filters.Count; i++)
+            //{
+            //    if (i == filters.Count - 1)
+            //    {
+            //        filter = filter + filters[i];
+            //    }
+            //    else
+            //    {
+            //        filter = filter + filters[i] + " AND ";
+            //    }
+            //}
 
-            if(filter != "")
-            {
-                filter = "WHERE " + filter;
-            }
+            //if(filter != "")
+            //{
+            //    filter = "WHERE " + filter;
+            //}
 
 
             list = new List<Employee>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"" + filter, DataBase.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
@@ -76,19 +78,7 @@ namespace ARM_Engineer.Employee
                 dataGridEmployeeTable.ItemsSource = list;
             } 
         }
-        private void Employee_Table_dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dataGridEmployeeTable.SelectedItems.Count == 1)
-            {
-                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)dataGridEmployeeTable.SelectedItems[0]);
-                employee_Window.Title = "Статус согласование(Изменить)";
-                employee_Window.ShowDialog();
-                if (employee_Window.DialogResult == true)
-                {
-                    Data_output();
-                }
-            }
-        }
+        
         private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //Employee_Window employee_Window = new Employee_Window();
@@ -116,12 +106,41 @@ namespace ARM_Engineer.Employee
                     dataGridEmployeeTable.Columns.RemoveAt(dataGridEmployeeTable.Columns.Count-1);
                 }
             }
-            
         }
 
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
         {
-            Data_output();
+
+            string searchTerm = textBoxFilterName.Text;
+            string query = "SELECT * FROM \"Employee\" WHERE \"name\" ILIKE @searchTerm";
+
+     
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, DataBase.Connection()))
+                {
+                    cmd.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+
+                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
+                    }
+                }
+            
+        }
+
+        private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridEmployeeTable.SelectedItems.Count == 1)
+            {
+                Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)dataGridEmployeeTable.SelectedItems[0]);
+                employee_Window.Title = "Статус согласование(Изменить)";
+                employee_Window.ShowDialog();
+                if (employee_Window.DialogResult == true)
+                {
+                    Data_output();
+                }
+            }
         }
     }
 }
