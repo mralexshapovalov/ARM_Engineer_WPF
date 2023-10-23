@@ -39,7 +39,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>
-        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18"/>
+        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" TextChanged="textBoxFilterName_TextChanged"/>
         <Button x:Name="ApplyFilters"  Content="Применить" HorizontalAlignment="Left" Margin="156,22,0,0" VerticalAlignment="Top" Height="18" Click="ApplyFilters_Click" Grid.Column="1" Width="66"/>
         <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
 

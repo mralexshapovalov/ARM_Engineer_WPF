@@ -3,6 +3,7 @@ using ARM_Engineer.Database;
 using ARM_Engineer.Models;
 using Npgsql;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -76,9 +77,9 @@ namespace ARM_Engineer.Employee
                     list.Last().ID_Post = reader.GetInt32("id_post");
                 }
                 dataGridEmployeeTable.ItemsSource = list;
-            } 
+            }
         }
-        
+
         private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //Employee_Window employee_Window = new Employee_Window();
@@ -99,11 +100,11 @@ namespace ARM_Engineer.Employee
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
-            for(int i = dataGridEmployeeTable.Columns.Count-1; i >= 0; i--)
+            for (int i = dataGridEmployeeTable.Columns.Count - 1; i >= 0; i--)
             {
-                if(i > 7)
+                if (i > 7)
                 {
-                    dataGridEmployeeTable.Columns.RemoveAt(dataGridEmployeeTable.Columns.Count-1);
+                    dataGridEmployeeTable.Columns.RemoveAt(dataGridEmployeeTable.Columns.Count - 1);
                 }
             }
         }
@@ -111,22 +112,26 @@ namespace ARM_Engineer.Employee
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
         {
 
-            string searchTerm = textBoxFilterName.Text;
-            string query = "SELECT * FROM \"Employee\" WHERE \"name\" ILIKE @searchTerm";
 
-     
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, DataBase.Connection()))
+            string searchString = "SELECT * FROM \"Employee\" WHERE concat(\"name\") LIKE '%" + textBoxFilterName.Text + "%'";
+
+
+
+
+            NpgsqlCommand cmd = new NpgsqlCommand(searchString, DataBase.Connection());
+            
+                
+
+                using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
                 {
-                    cmd.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
-
-                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
-                    }
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
                 }
             
+
+
+
         }
 
         private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -141,6 +146,28 @@ namespace ARM_Engineer.Employee
                     Data_output();
                 }
             }
+        }
+
+        private void textBoxFilterName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchTerm = textBoxFilterName.Text;
+           
+
+          
+
+                string query = "SELECT * FROM \"Employee\" WHERE name ILIKE @searchTerm";
+                using (NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection()))
+                {
+                    command.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
+
+                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
+                    }
+                }
+            
         }
     }
 }
