@@ -33,33 +33,33 @@ namespace ARM_Engineer.Employee
         }
         void Data_output()
         {
-            //string filter ="";
-            //List<string> filters = new List<string>();
-            //if(textBoxFilterName.Text != "")
-            //{
-            //    filters.Add("\"name\" = "+"\"" + textBoxFilterName.Text+"\"");
-            //}
+            string filter = "";
+            List<string> filters = new List<string>();
+            if (textBoxFilterName.Text != "")
+            {
+                filters.Add("\"name\" = " + "\"" + textBoxFilterName.Text + "\"");
+            }
 
-            //for(int i=0; i < filters.Count; i++)
-            //{
-            //    if (i == filters.Count - 1)
-            //    {
-            //        filter = filter + filters[i];
-            //    }
-            //    else
-            //    {
-            //        filter = filter + filters[i] + " AND ";
-            //    }
-            //}
+            for (int i = 0; i < filters.Count; i++)
+            {
+                if (i == filters.Count - 1)
+                {
+                    filter = filter + filters[i];
+                }
+                else
+                {
+                    filter = filter + filters[i] + " AND ";
+                }
+            }
 
-            //if(filter != "")
-            //{
-            //    filter = "WHERE " + filter;
-            //}
+            if (filter != "")
+            {
+                filter = "WHERE " + filter;
+            }
 
 
             list = new List<Employee>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"", DataBase.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"  ", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
@@ -111,27 +111,19 @@ namespace ARM_Engineer.Employee
 
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
         {
+            Data_output();
 
-
-            string searchString = "SELECT * FROM \"Employee\" WHERE concat(\"name\") LIKE '%" + textBoxFilterName.Text + "%'";
-
-
-
-
-            NpgsqlCommand cmd = new NpgsqlCommand(searchString, DataBase.Connection());
-            
-                
-
-                using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
-                }
-            
-
-
-
+            //string query = "SELECT * FROM public. \"Employee\" WHERE name ILIKE @searchTerm";
+            //using (NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection()))
+            //{
+            //    command.Parameters.AddWithValue("@searchTerm", "%" + textBoxFilterName.Text + "%");
+            //    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
+            //    {
+            //        DataTable dataTable = new DataTable();
+            //        adapter.Fill(dataTable);
+            //        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
+            //    }
+            //}
         }
 
         private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -150,22 +142,24 @@ namespace ARM_Engineer.Employee
 
         private void textBoxFilterName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string searchTerm = textBoxFilterName.Text;
-           
-
-          
-
-                string query = "SELECT * FROM \"Employee\" WHERE name ILIKE @searchTerm";
-                using (NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection()))
+         
+   
+                if (textBoxFilterName.Text != "")
                 {
-                    command.Parameters.AddWithValue("@searchTerm", "%" + searchTerm + "%");
-
+                    string query = "SELECT * FROM public. \"Employee\" WHERE name ILIKE @searchTerm";
+                    NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection());
+                    command.Parameters.AddWithValue("@searchTerm", "%" + textBoxFilterName.Text + "%");
                     using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
                     {
                         DataTable dataTable = new DataTable();
                         adapter.Fill(dataTable);
                         dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
                     }
+                }
+                else
+                {
+                    Data_output();
+                return;
                 }
             
         }

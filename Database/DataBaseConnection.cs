@@ -11,8 +11,10 @@ namespace ARM_Engineer.Database
 {
     static class DataBase
     {
+
         static public NpgsqlConnection Connection()
         {
+
             string connString = "Host=localhost;Username=postgres;Password=0196;Database=ARM_Engineer";
             NpgsqlConnection newConnection = new NpgsqlConnection(connString);
             try
@@ -55,7 +57,6 @@ namespace ARM_Engineer.Database
                 reader.Read();
                 org.ID = reader.GetInt32(0);
                 org.Name = reader.GetString(1);
-
             }
 
             return org;
