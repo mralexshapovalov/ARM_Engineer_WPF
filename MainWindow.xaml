@@ -14,7 +14,6 @@
 
         <Button x:Name="Status_Button" Content="Статус" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click" Grid.Column="1"/>
         <Button x:Name="Employee_Buton" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="380,15,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Employee_Buton_Click"/>
-        <Menu/>
 
     </Grid>
 </Window>
