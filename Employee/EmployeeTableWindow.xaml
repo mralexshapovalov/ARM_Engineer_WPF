@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
         Title="Employee_Table_Window" Height="648" Width="897">
+    
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,7 +14,13 @@
             <ColumnDefinition Width="191*"/>
             <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=5 }" IsReadOnly="True" 
+        <Grid.ContextMenu>
+            <ContextMenu x:Name="ContextMenu">
+                <MenuItem Header="Изменить" Click="Change_ContextMenu"/>
+                <MenuItem Header="Удалить" Click="Remove_ContextMenu"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=2 }" IsReadOnly="True" 
                   ColumnWidth="*"
                   MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" 
                   Margin="0,56,0,10" 
@@ -23,7 +30,7 @@
                   Grid.ColumnSpan="3" SelectedIndex="0" 
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
                   AlternatingRowBackground="LightGray" 
-                  GridLinesVisibility="None" FontFamily="Arial" MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown">
+                  GridLinesVisibility="None" FontFamily="Arial" MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown" MouseEnter="dataGridEmployeeTable_MouseEnter" SelectionChanged="dataGridEmployeeTable_SelectionChanged">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>

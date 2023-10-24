@@ -25,6 +25,8 @@ namespace ARM_Engineer.Employee
         Employee model;
         public Employee_Window(string openMode, Employee model)
         {
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
             InitializeComponent();
 
             this.openMode = openMode;
