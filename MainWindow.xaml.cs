@@ -39,5 +39,11 @@ namespace ARM_Engineer
             Employee_Table_Window employee_Table_Window = new Employee_Table_Window();
             employee_Table_Window.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            menu.Show();
+        }
     }
 }
