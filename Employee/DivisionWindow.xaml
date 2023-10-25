@@ -5,10 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="DivisionWindow" Height="450" Width="389">
+        Title="DivisionWindow" Height="450" Width="380">
     <Grid>
-        <Button x:Name="buttonSelected" Content="Добавить" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="105" Click="buttonSelected_Click"/>
-        <DataGrid x:Name="dataGridDivision" d:ItemsSource="{d:SampleData ItemCount=2}" Margin="0,44,0,-44"/>
+        <DataGrid x:Name="dataGridDivision" d:ItemsSource="{d:SampleData ItemCount=2}"
+                  MouseDoubleClick="dataGridDivision_MouseDoubleClick"
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False"  
+                  ColumnHeaderHeight="40"  
+                  RowHeight="30" 
+                  FontSize="14"  
+                  AlternatingRowBackground="LightGray" 
+                  GridLinesVisibility="None" 
+                  FontFamily="Arial" 
+                  VerticalAlignment="Top" 
+                  Height="431" 
+                  SelectedIndex="0" 
+                  ColumnWidth="*"  Margin="0,10,0,0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

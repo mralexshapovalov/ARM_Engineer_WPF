@@ -27,10 +27,15 @@
                   AutoGenerateColumns="False" 
                   ItemsSource="{Binding}" 
                   AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn" 
-                  Grid.ColumnSpan="3" SelectedIndex="0" 
+                  Grid.ColumnSpan="3" 
+                  SelectedIndex="0" 
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
                   AlternatingRowBackground="LightGray" 
-                  GridLinesVisibility="None" FontFamily="Arial" MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown" MouseEnter="dataGridEmployeeTable_MouseEnter" SelectionChanged="dataGridEmployeeTable_SelectionChanged">
+                  GridLinesVisibility="None" 
+                  FontFamily="Arial"
+                  MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown" 
+                  MouseEnter="dataGridEmployeeTable_MouseEnter" 
+                  SelectionChanged="dataGridEmployeeTable_SelectionChanged">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>
@@ -41,8 +46,6 @@
                 <DataGridTextColumn Binding="{Binding Organization.Name}" Header="Организация" Width="200" />
                 <DataGridTextColumn Binding="{Binding Division.Name}" Header="Текущее подразделение организации" Width="300" />
                 <DataGridTextColumn Binding="{Binding Post.Name}" Header="Текущая должность организации" Width="450" />
-
-
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>

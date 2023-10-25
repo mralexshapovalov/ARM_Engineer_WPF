@@ -27,6 +27,7 @@ namespace ARM_Engineer.Employee
         List<Division> list;
         public DivisionWindow()
         {
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             Data_output();
         }
@@ -46,8 +47,7 @@ namespace ARM_Engineer.Employee
                dataGridDivision.ItemsSource = list;
             }
         }
-
-        private void buttonSelected_Click(object sender, RoutedEventArgs e)
+        private void dataGridDivision_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (dataGridDivision.SelectedItems.Count == 1)
             {

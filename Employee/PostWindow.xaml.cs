@@ -24,6 +24,7 @@ namespace ARM_Engineer.Employee
         List<Post> list;
         public PostWindow()
         {
+            this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             Data_output();
         }
@@ -44,12 +45,8 @@ namespace ARM_Engineer.Employee
                 dataGrid_Post.ItemsSource = list;
             }
         }
-        private void dataGrid_Post_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void button_select_Click(object sender, RoutedEventArgs e)
+       
+        private void dataGrid_Post_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (dataGrid_Post.SelectedItems.Count == 1)
             {

@@ -96,12 +96,10 @@ namespace ARM_Engineer.Employee
             {
                 Data_output();
             }
-            
         }
 
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
             for (int i = dataGridEmployeeTable.Columns.Count - 1; i >= 0; i--)
             {
                 if (i > 7)
@@ -146,7 +144,6 @@ namespace ARM_Engineer.Employee
         private void textBoxFilterName_TextChanged(object sender, TextChangedEventArgs e)
         {
          
-   
                 if (textBoxFilterName.Text != "")
                 {
                     string query = "SELECT * FROM public. \"Employee\" WHERE name ILIKE @searchTerm";
