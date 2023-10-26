@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
         Title="Employee_Table_Window" Height="648" Width="897">
-    
+
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -16,13 +16,12 @@
         </Grid.ColumnDefinitions>
         <Grid.ContextMenu>
             <ContextMenu x:Name="ContextMenu">
-                <MenuItem Header="Изменить" Click="Change_ContextMenu"/>
+                <MenuItem Header="Изменить" Click="Edit_ContextMenu"/>
                 <MenuItem Header="Удалить" Click="Remove_ContextMenu"/>
             </ContextMenu>
         </Grid.ContextMenu>
         <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=2 }" IsReadOnly="True" 
                   ColumnWidth="*"
-                  MouseDoubleClick="Employee_Table_dataGrid_MouseDoubleClick" 
                   Margin="0,56,0,10" 
                   AutoGenerateColumns="False" 
                   ItemsSource="{Binding}" 
@@ -32,10 +31,7 @@
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
                   AlternatingRowBackground="LightGray" 
                   GridLinesVisibility="None" 
-                  FontFamily="Arial"
-                  MouseLeftButtonDown="dataGridEmployeeTable_MouseLeftButtonDown" 
-                  MouseEnter="dataGridEmployeeTable_MouseEnter" 
-                  SelectionChanged="dataGridEmployeeTable_SelectionChanged">
+                  FontFamily="Arial">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>
@@ -49,9 +45,11 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>
-        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" TextChanged="textBoxFilterName_TextChanged"/>
+        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" />
         <Button x:Name="ApplyFilters"  Content="Применить" HorizontalAlignment="Left" Margin="156,22,0,0" VerticalAlignment="Top" Height="18" Click="ApplyFilters_Click" Grid.Column="1" Width="66"/>
         <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
+        <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="256,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Height="18" Grid.Column="1"/>
+        <Button x:Name="buttonOrganizationSelect" Content="..." HorizontalAlignment="Left" Margin="504,22,0,0" VerticalAlignment="Top" Height="18" Width="24" Click="buttonOrganizationSelect_Click" Grid.Column="1"/>
 
     </Grid>
 

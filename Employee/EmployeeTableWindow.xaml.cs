@@ -25,6 +25,7 @@ namespace ARM_Engineer.Employee
     {
         List<Employee> list;
         DataTable dataTable;
+        Organization filterOrganization;
         NpgsqlDataAdapter dataAdapter;
         public Employee_Table_Window()
         {
@@ -38,7 +39,11 @@ namespace ARM_Engineer.Employee
             List<string> filters = new List<string>();
             if (textBoxFilterName.Text != "")
             {
-                filters.Add("\"name\" = " + "\"" + textBoxFilterName.Text + "\"");
+                filters.Add(" \"name\" LIKE " + "'%" + textBoxFilterName.Text + "%'");
+            }
+            if(filterOrganization != null)
+            {
+                filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
             }
 
             for (int i = 0; i < filters.Count; i++)
@@ -55,12 +60,12 @@ namespace ARM_Engineer.Employee
 
             if (filter != "")
             {
-                filter = "WHERE " + filter;
+                filter = "WHERE" + filter;
             }
 
 
             list = new List<Employee>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\"  ", DataBase.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + filter, DataBase.newConnection);
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
@@ -79,12 +84,7 @@ namespace ARM_Engineer.Employee
                 }
                 dataGridEmployeeTable.ItemsSource = list;
             }
-        }
-
-        private void Employee_Table_dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //Employee_Window employee_Window = new Employee_Window();
-            //employee_Window.Show();
+            reader.Close();
         }
         private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
         {
@@ -97,7 +97,6 @@ namespace ARM_Engineer.Employee
                 Data_output();
             }
         }
-
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             for (int i = dataGridEmployeeTable.Columns.Count - 1; i >= 0; i--)
@@ -108,24 +107,10 @@ namespace ARM_Engineer.Employee
                 }
             }
         }
-
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
         {
-            Data_output();
-
-            //string query = "SELECT * FROM public. \"Employee\" WHERE name ILIKE @searchTerm";
-            //using (NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection()))
-            //{
-            //    command.Parameters.AddWithValue("@searchTerm", "%" + textBoxFilterName.Text + "%");
-            //    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
-            //    {
-            //        DataTable dataTable = new DataTable();
-            //        adapter.Fill(dataTable);
-            //        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
-            //    }
-            //}
+            Data_output(); 
         }
-
         private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (dataGridEmployeeTable.SelectedItems.Count == 1)
@@ -138,64 +123,8 @@ namespace ARM_Engineer.Employee
                     Data_output();
                 }
             }
-
         }
-
-        private void textBoxFilterName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-         
-                if (textBoxFilterName.Text != "")
-                {
-                    string query = "SELECT * FROM public. \"Employee\" WHERE name ILIKE @searchTerm";
-                    NpgsqlCommand command = new NpgsqlCommand(query, DataBase.Connection());
-                    command.Parameters.AddWithValue("@searchTerm", "%" + textBoxFilterName.Text + "%");
-                    using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        adapter.Fill(dataTable);
-                        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
-                    }
-                }
-                else
-                {
-                    Data_output();
-                return;
-                }
-            
-        }
-
-        private void dataGridEmployeeTable_MouseEnter(object sender, MouseEventArgs e)
-        {
-        //    void Change_ContextMenu(object sender, RoutedEventArgs e)
-        //    {
-        //        if (dataGridEmployeeTable.SelectedItems.Count == 1)
-        //        {
-        //            Employee_Window employee_Window = new Employee_Window("Изменить", (Employee)dataGridEmployeeTable.SelectedItems[0]);
-        //            employee_Window.Title = "Статус согласование(Изменить)";
-        //            employee_Window.ShowDialog();
-        //            if (employee_Window.DialogResult == true)
-        //            {
-        //                Data_output();
-        //            }
-        //        }
-        //    }
-        //     void Remove_ContextMenu(object sender, RoutedEventArgs e)
-        //    {
-        //        if (MessageBox.Show("Вы действительно хотите удалить данную строку?", "Уведомление", MessageBoxButton.YesNoCancel, MessageBoxImage.Question) == MessageBoxResult.Yes)
-        //        {
-        //            Employee request = dataGridEmployeeTable.SelectedItem as Employee;
-        //            string commandText = $"DELETE FROM \"Employee\" WHERE \"ID\"=(@id)";
-        //            using (var cmd = new NpgsqlCommand(commandText, DataBase.Connection()))
-        //            {
-        //                cmd.Parameters.AddWithValue("@id", request.ID);
-        //                cmd.ExecuteNonQuery();
-        //            }
-        //            Data_output();
-        //        }
-        //    }
-        }
-
-        private void Change_ContextMenu(object sender, RoutedEventArgs e)
+        private void Edit_ContextMenu(object sender, RoutedEventArgs e)
         {
             if (dataGridEmployeeTable.SelectedItems.Count == 1)
             {
@@ -214,7 +143,7 @@ namespace ARM_Engineer.Employee
             {
                 Employee request = dataGridEmployeeTable.SelectedItem as Employee;
                 string commandText = $"DELETE FROM \"Employee\" WHERE \"id\"=(@id)";
-                using (var cmd = new NpgsqlCommand(commandText, DataBase.Connection()))
+                using (var cmd = new NpgsqlCommand(commandText, DataBase.newConnection))
                 {
                     cmd.Parameters.AddWithValue("@id", request.ID);
                     cmd.ExecuteNonQuery();
@@ -222,10 +151,17 @@ namespace ARM_Engineer.Employee
                 Data_output();
             }
         }
-
-        private void dataGridEmployeeTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void buttonOrganizationSelect_Click(object sender, RoutedEventArgs e)
         {
+            OrganizationWindow organizationWindow = new OrganizationWindow();
+            organizationWindow.ShowDialog();
 
-        }
+            if (organizationWindow.DialogResult == true)
+            {
+                filterOrganization = new Organization();
+                filterOrganization.ID = organizationWindow.selectedItem.ID;
+                textBoxOrganization.Text = organizationWindow.selectedItem.Name;
+            }
+        } 
     }
 }

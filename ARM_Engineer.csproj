@@ -8,7 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="icon\control-bbanel.png" />
+    <None Remove="icon\Desktop.png" />
+    <None Remove="icon\Employee.png" />
+    <None Remove="icon\Products.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Npgsql" Version="7.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon\control-bbanel.png" />
+    <Resource Include="icon\Desktop.png" />
+    <Resource Include="icon\Employee.png" />
+    <Resource Include="icon\Products.png" />
   </ItemGroup>
 
 </Project>

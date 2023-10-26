@@ -45,6 +45,7 @@ namespace ARM_Engineer.Employee
                 }
                 dataGrid_Organization.ItemsSource = list;
             }
+            reader.Close();
         }
 
         

@@ -46,6 +46,7 @@ namespace ARM_Engineer.Employee
                 }
                dataGridDivision.ItemsSource = list;
             }
+            reader.Close();
         }
         private void dataGridDivision_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

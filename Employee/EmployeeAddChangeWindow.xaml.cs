@@ -55,7 +55,7 @@ namespace ARM_Engineer.Employee
                     {
                         NpgsqlCommand cmd = new NpgsqlCommand("insert into \"Employee\" (\"service_number\", \"name\",\"date_employee\",\"date_dismissal\",\"id_organization\",\"year_birth\",\"id_division\",\"id_post\" ) " +
                                                          "values(@service_number,@name,@date_employee,@date_dismissal,@id_organization,@year_birth,@id_division,@id_post)",
-                                                         DataBase.Connection());
+                                                         DataBase.newConnection);
                         cmd.Parameters.Add(new NpgsqlParameter("@service_number", textBoxTableNumber.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@name", textBoxName.Text));
                         cmd.Parameters.Add(new NpgsqlParameter("@date_employee", datePickerDateEmployment.SelectedDate));
@@ -90,7 +90,7 @@ namespace ARM_Engineer.Employee
                     NpgsqlCommand cmd = new NpgsqlCommand("update \"Employee\" SET \"service_number\" = @service_number,\"name\"=@name," +
                         "\"date_employee\"=@date_employee,\"date_dismissal\"=@date_dismissal,\"id_organization\"=@id_organization,\"year_birth\" = @year_birth," +
                         "\"id_division\"=@id_division,\"id_post\"=@id_post  WHERE \"id\" = @id",
-                        DataBase.Connection());
+                       DataBase.newConnection);
                     cmd.Parameters.Add(new NpgsqlParameter("@id", model.ID));
                     cmd.Parameters.Add(new NpgsqlParameter("@service_number", textBoxTableNumber.Text));
                     cmd.Parameters.Add(new NpgsqlParameter("@name", textBoxName.Text));

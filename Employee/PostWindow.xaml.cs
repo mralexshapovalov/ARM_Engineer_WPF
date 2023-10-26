@@ -44,6 +44,7 @@ namespace ARM_Engineer.Employee
                 }
                 dataGrid_Post.ItemsSource = list;
             }
+            reader.Close();
         }
        
         private void dataGrid_Post_MouseDoubleClick(object sender, MouseButtonEventArgs e)

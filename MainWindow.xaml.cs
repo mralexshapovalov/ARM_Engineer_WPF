@@ -25,7 +25,9 @@ namespace ARM_Engineer
     {
         public MainWindow()
         {
+            DataBase.Connection();
             InitializeComponent();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
