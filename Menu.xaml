@@ -5,80 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer"
         mc:Ignorable="d"
-        Title="Menu" Height="616" Width="1083">
-    <Grid>
-        <TabControl Background="#FFFBED9E">
-            <TabItem Header="Главное" Margin="-2,-2,-103,-35" FontSize="14">
-               
-                
+        Title="Menu" Height="712" Width="1579">
+    <Grid Margin="0,0,0,-16">
+        <TabControl Background="#FFFBED9E" Margin="0,0,0,10" >
+            <TabItem x:Name="tabControlMainMenu"  Margin="-2,-2,-20,-35" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="icomMainMenu" Source="/icon/Desktop.png" Height="49" Width="66"/>
+                        <Label Content="Главное" VerticalAlignment="Center" FontSize="14" FontFamily="Arial"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <TabItem.Background>
-                    
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0"/>
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
-                    
                 </TabItem.Background>
-                
+                <Grid Background="White" Height="998" Margin="-36,0,-378,0"/>
             </TabItem>
-            <TabItem Header="            Планирование и учет ремонтных работ" Margin="102,-2,-120,-35" FontSize="14" FontFamily="Arial">
+            <TabItem  Margin="20,-2,-38,-36" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="icomRepairWork" Source="/icon/control-bbanel.png" Height="49" Width="66"/>
+                        <Label Content="Планирование и учет ремонтных работ" FontSize="14" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0" Offset="0"/>
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
-                        
                     </LinearGradientBrush>
-
                 </TabItem.Background>
-                <Grid Background="White" Height="551"/>
+                <Grid Background="White" Height="1127" Margin="-4,0,-383,0"/>
             </TabItem>
-
-            <TabItem Header="    Отдел кадров" Margin="119,-2,-206,-35" FontSize="14" FontFamily="Arial">
+            <TabItem Margin="38,-2,-79,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="icomHR" Source="/icon/Employee.png" Height="49" Width="66"/>
+                        <Label Content="Отдел кадров" FontSize="14" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="White" Offset="0"/>
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
-                        
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="White" Height="549">
-                    
+                <Grid Background="White" Height="1100" Margin="-17,0,-385,0">
                 </Grid>
             </TabItem>
-            <TabItem Header="    Складской учет" Margin="205,-2,-296,-35" FontSize="14" FontFamily="Arial" >
+            <TabItem Margin="79,-2,-158,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="iconWarehouse" Source="/icon/Products.png" Height="49" Width="66"/>
+                        <Label Content="Складской учет" FontSize="14" FontFamily="Arial" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <TabItem.Background>
+
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="White" Offset="0"/>
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="White" Height="598">
+                <Grid Background="White" Height="1058" Margin="-14,0,-383,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="766*"/>
                         <ColumnDefinition Width="303*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
-            <TabItem Header="Отчеты" Margin="296,-2,-358,-33" FontSize="14" FontFamily="Arial" >
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="White" Offset="0"/>
-                        <GradientStop Color="#FFFBED9E" Offset="0"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <Grid Background="White" Height="552">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1017*"/>
-                        <ColumnDefinition Width="53*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </TabItem>
-            
+
         </TabControl>
-        <Image Margin="17,17,1010,535" Source="/icon/Desktop.png" Stretch="Fill"/>
-        <Image Margin="216,16,799,535" Source="/icon/control-bbanel.png" Stretch="Fill"/>
-        <Image Margin="751,17,276,535" Source="/icon/Products.png" Stretch="Fill"/>
-        <Image Margin="546,17,481,535" Source="/icon/Employee.png" Stretch="Fill"/>
+        <Border BorderBrush="#FFFBED9E" BorderThickness="1" HorizontalAlignment="Left" Height="90" Margin="1012,0,0,0" VerticalAlignment="Top" Width="1013" Background="#FFFBED9E"/>
+
 
     </Grid>
 </Window>
