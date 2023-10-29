@@ -47,16 +47,7 @@ namespace ARM_Engineer.Employee
             }
 
             if(dataPicker_Test1.SelectedDate != null && dataPicker_Test2.SelectedDate != null)
-            {
-                DateTime a;
-                for(int i = 0; i < dataPicker_Test1.SelectedDate.Value.ToShortDateString().Length; i++)
-                {
-                    while(dataPicker_Test1.SelectedDate.Value.ToShortDateString()[i] < 10)
-                    {
-                        a = dataPicker_Test1.SelectedDate.Value;
-                    }
-                }
- 
+            { 
 
                 
                 
