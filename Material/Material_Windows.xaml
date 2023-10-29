@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Material"
         mc:Ignorable="d"
-        Title="Material_Windows" Height="450" Width="800">
+        Title="Material_Windows" Height="396" Width="719">
     <Grid>
-        
+        <Label Content="Номенклатура(создание)" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Width="207" FontSize="16" FontFamily="Arial"/>
+        <Button Content="Записать и закрыть" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="139" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747" Height="24"/>
+        <Button Content="Записать" HorizontalAlignment="Left" Margin="154,56,0,0" VerticalAlignment="Top" Width="102" FontFamily="Arial" Background="White" Height="24"/>
+        <Label Content="Вид номенклатуры:" HorizontalAlignment="Left" Margin="19,105,0,0" VerticalAlignment="Top" Width="124" FontFamily="Arial"/>
+        <Label Content="Организация:" HorizontalAlignment="Left" Margin="19,134,0,0" VerticalAlignment="Top" Width="124" FontFamily="Arial"/>
+        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="19,165,0,0" VerticalAlignment="Top" Width="124" FontFamily="Arial"/>
+        <Label Content="Артикул:" HorizontalAlignment="Left" Margin="19,248,0,0" VerticalAlignment="Top" Width="124" FontFamily="Arial"/>
+        <Label Content="Единица измерения:" HorizontalAlignment="Left" Margin="18,277,0,0" VerticalAlignment="Top" Width="124" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Margin="183,108,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
+        <TextBox HorizontalAlignment="Left" Margin="183,140,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
+        <TextBox HorizontalAlignment="Left" Margin="183,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Height="61"/>
+        <TextBox HorizontalAlignment="Left" Margin="183,254,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+        <TextBox HorizontalAlignment="Left" Margin="183,283,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
+        <Button Content="..." HorizontalAlignment="Left" Margin="438,140,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Button Content="..." HorizontalAlignment="Left" Margin="438,108,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Button Content="..." HorizontalAlignment="Left" Margin="438,283,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Label Content="Код:" HorizontalAlignment="Left" Margin="478,173,0,0" VerticalAlignment="Top" Width="37" FontFamily="Arial"/>
+        <TextBox HorizontalAlignment="Left" Margin="520,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="118"/>
+
+
     </Grid>
 </Window>

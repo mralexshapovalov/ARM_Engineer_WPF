@@ -29,7 +29,7 @@
                   Grid.ColumnSpan="3" 
                   SelectedIndex="0" 
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
-                  AlternatingRowBackground="LightGray" 
+                  AlternatingRowBackground="#fafafa" 
                   GridLinesVisibility="None" 
                   FontFamily="Arial">
 

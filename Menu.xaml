@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:ARM_Engineer"
         mc:Ignorable="d"
         Title="Menu" Height="712" Width="1579">
+
+
     <Grid Margin="0,0,0,-16">
+
         <TabControl Background="#FFFBED9E" Margin="0,0,0,10" >
             <TabItem x:Name="tabControlMainMenu"  Margin="-2,-2,-20,-35" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <TabItem.Header>
@@ -21,6 +24,7 @@
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
+
                 <Grid Background="White" Height="998" Margin="-36,0,-378,0"/>
             </TabItem>
             <TabItem  Margin="20,-2,-38,-36" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand">
@@ -30,14 +34,29 @@
                         <Label Content="Планирование и учет ремонтных работ" FontSize="14" FontFamily="Arial" VerticalAlignment="Center"/>
                     </StackPanel>
                 </TabItem.Header>
+
                 <TabItem.Background>
                     <LinearGradientBrush EndPoint="0,1">
                         <GradientStop Color="#FFF0F0F0" Offset="0"/>
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="White" Height="1127" Margin="-4,0,-383,0"/>
+                <Grid Background="White" Height="1127" Margin="-4,0,-383,0">
+                    <Button  x:Name="button"  Content="Buttons" HorizontalAlignment="Left" Margin="38,97,0,0" VerticalAlignment="Top" Width="118" BorderBrush="White" Background="White" Click="Button_Click" />
+                    <TextBlock HorizontalAlignment="Left" Margin="38,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Cursor="Hand" MouseDown="TextBlock_MouseDown" Foreground="#FFFD2020" Background="White" ><Hyperlink>Стасус согласованиек</Hyperlink>
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="" MouseAction="LeftClick" />
+
+                        </TextBlock.InputBindings>
+
+
+                    </TextBlock>
+                    <Label Content="Справочники" HorizontalAlignment="Left" Margin="38,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
+                    <Label Content="Документы" HorizontalAlignment="Left" Margin="38,241,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
+                    <Label Content="Создать" HorizontalAlignment="Left" Margin="474,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
+                </Grid>
             </TabItem>
+
             <TabItem Margin="38,-2,-79,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -52,6 +71,8 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
                 <Grid Background="White" Height="1100" Margin="-17,0,-385,0">
+                    <Label Content="Документы" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
+                    <Button x:Name="button_Employee" Content="Сотрудники организаций" HorizontalAlignment="Left" Margin="60,101,0,0" VerticalAlignment="Top" Width="170" Background="White" Foreground="Black" BorderBrush="White" Click="button_Employee_Click" />
                 </Grid>
             </TabItem>
             <TabItem Margin="79,-2,-158,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
@@ -81,4 +102,5 @@
 
 
     </Grid>
+
 </Window>
