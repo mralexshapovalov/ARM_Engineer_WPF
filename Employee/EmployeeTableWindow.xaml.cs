@@ -46,6 +46,24 @@ namespace ARM_Engineer.Employee
                 filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
             }
 
+            if(dataPicker_Test1.SelectedDate != null && dataPicker_Test2.SelectedDate != null)
+            {
+                DateTime a;
+                for(int i = 0; i < dataPicker_Test1.SelectedDate.Value.ToShortDateString().Length; i++)
+                {
+                    while(dataPicker_Test1.SelectedDate.Value.ToShortDateString()[i] < 10)
+                    {
+                        a = dataPicker_Test1.SelectedDate.Value;
+                    }
+                }
+ 
+
+                
+                
+                //filters.Add("\"date_employee\" >= " + dataPicker_Test1.DisplayDate.DayOfYear + " AND " + "\"date_employee\" < " + "" + dataPicker_Test2.DisplayDate.DayOfYear);
+////SELECT * FROM public."Employee"  WHERE date_employee >= '2022-01-01' AND date_dismissal < '2023-01-01';
+            }
+
             for (int i = 0; i < filters.Count; i++)
             {
                 if (i == filters.Count - 1)
@@ -162,6 +180,30 @@ namespace ARM_Engineer.Employee
                 filterOrganization.ID = organizationWindow.selectedItem.ID;
                 textBoxOrganization.Text = organizationWindow.selectedItem.Name;
             }
-        } 
+        }
+
+        private void buttonSelectDataPicker_Click(object sender, RoutedEventArgs e)
+        {
+            //DateTime fromDate = dataPicker_Test1.SelectedDate.GetValueOrDefault();
+            //DateTime toDate = dataPicker_Test1.SelectedDate.GetValueOrDefault();
+
+
+
+
+
+            //NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.\"Employee\"  WHERE \"date_employee\" >= '2022-01-01' AND \"date_dismissal\" <= '2023-01-01'", DataBase.newConnection);
+
+            //        command.Parameters.AddWithValue("@FromDate", fromDate);
+            //        command.Parameters.AddWithValue("@ToDate", toDate);
+
+            //        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+            //        DataTable dataTable = new DataTable();
+            //        adapter.Fill(dataTable);
+
+            //        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
+            Data_output();
+
+            //SELECT * FROM public."Employee"  WHERE date_employee >= '2022-01-01' AND date_dismissal < '2023-01-01';
+        }
     }
 }
