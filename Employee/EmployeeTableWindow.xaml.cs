@@ -46,13 +46,10 @@ namespace ARM_Engineer.Employee
                 filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
             }
 
-            if(dataPicker_Test1.SelectedDate != null && dataPicker_Test2.SelectedDate != null)
-            { 
+            if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
+            {
+                filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
 
-                
-                
-                //filters.Add("\"date_employee\" >= " + dataPicker_Test1.DisplayDate.DayOfYear + " AND " + "\"date_employee\" < " + "" + dataPicker_Test2.DisplayDate.DayOfYear);
-////SELECT * FROM public."Employee"  WHERE date_employee >= '2022-01-01' AND date_dismissal < '2023-01-01';
             }
 
             for (int i = 0; i < filters.Count; i++)
@@ -76,6 +73,7 @@ namespace ARM_Engineer.Employee
             list = new List<Employee>();
             NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + filter, DataBase.newConnection);
             NpgsqlDataReader reader = npgc.ExecuteReader();
+
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
@@ -93,6 +91,11 @@ namespace ARM_Engineer.Employee
                 }
                 dataGridEmployeeTable.ItemsSource = list;
             }
+            else
+            {
+                dataGridEmployeeTable.ItemsSource = null;
+            }
+            
             reader.Close();
         }
         private void Add_Employee_Button_Click(object sender, RoutedEventArgs e)
@@ -175,26 +178,15 @@ namespace ARM_Engineer.Employee
 
         private void buttonSelectDataPicker_Click(object sender, RoutedEventArgs e)
         {
-            //DateTime fromDate = dataPicker_Test1.SelectedDate.GetValueOrDefault();
-            //DateTime toDate = dataPicker_Test1.SelectedDate.GetValueOrDefault();
+            
+              Data_output();
+            
+        }
 
-
-
-
-
-            //NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM public.\"Employee\"  WHERE \"date_employee\" >= '2022-01-01' AND \"date_dismissal\" <= '2023-01-01'", DataBase.newConnection);
-
-            //        command.Parameters.AddWithValue("@FromDate", fromDate);
-            //        command.Parameters.AddWithValue("@ToDate", toDate);
-
-            //        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
-            //        DataTable dataTable = new DataTable();
-            //        adapter.Fill(dataTable);
-
-            //        dataGridEmployeeTable.ItemsSource = dataTable.DefaultView;
+       
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
             Data_output();
-
-            //SELECT * FROM public."Employee"  WHERE date_employee >= '2022-01-01' AND date_dismissal < '2023-01-01';
         }
     }
 }

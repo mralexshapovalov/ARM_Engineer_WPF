@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="Employee_Table_Window" Height="648" Width="948">
+        Title="Employee_Table_Window" Height="648" Width="1117">
 
 
     <Grid>
@@ -49,9 +49,10 @@
         <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
         <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="256,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="18" Grid.Column="1"/>
         <Button x:Name="buttonDateSelect" Content="..." HorizontalAlignment="Left" Margin="437,22,0,0" VerticalAlignment="Top" Height="18" Width="24" Click="buttonOrganizationSelect_Click" Grid.Column="1"/>
-        <DatePicker x:Name="dataPicker_Test1" Grid.Column="1" Margin="474,22,104,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
-        <DatePicker x:Name="dataPicker_Test2" Grid.Column="1" HorizontalAlignment="Left" Margin="569,22,0,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
-        <Button x:Name="buttonSelectDataPicker" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="659,20,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="56" Click="buttonSelectDataPicker_Click"/>
+        <DatePicker x:Name="dataPicker_Test1" Grid.Column="1" Margin="474,22,209,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
+        <DatePicker x:Name="dataPicker_Test2" Grid.Column="1" HorizontalAlignment="Left" Margin="583,22,0,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
+        <Button x:Name="buttonSelectDataPicker" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="673,22,0,0" VerticalAlignment="Top" Width="56" Click="buttonSelectDataPicker_Click"/>
+        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="767,22,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="88" Click="Button_Click_1"/>
 
     </Grid>
 
