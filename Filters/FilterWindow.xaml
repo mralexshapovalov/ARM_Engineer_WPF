@@ -12,7 +12,7 @@
         <Label Content="Что искать:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
         <Button x:Name="buttonSearch" Content="Найти" HorizontalAlignment="Left" Margin="258,163,0,0" VerticalAlignment="Top" Width="60" Click="buttonSearch_Click"/>
         <Button x:Name="buttonClouse" Content="Закрыть" HorizontalAlignment="Left" Margin="329,163,0,0" VerticalAlignment="Top" Width="54" Click="buttonClouse_Click"/>
-        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263"/>
+        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263" TextChanged="textboxFilterName_TextChanged"/>
         <ComboBox x:Name="comboboxForSearch" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" Width="263" Height="18" SelectionChanged="comboboxForSearch_SelectionChanged" />
 
     </Grid>

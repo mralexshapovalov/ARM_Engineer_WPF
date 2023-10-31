@@ -19,10 +19,11 @@ namespace ARM_Engineer.Employee
     /// </summary>
     public partial class FilterWindow : Window
     {
+        Employee model;
         public FilterWindow()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-        
+
             InitializeComponent();
             comboboxForSearch.Items.Add("ID");
             comboboxForSearch.Items.Add("Имя");
@@ -36,17 +37,37 @@ namespace ARM_Engineer.Employee
 
         private void comboboxForSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             Employee_Table_Window employee_Table_Window = new Employee_Table_Window();
-            if(comboboxForSearch.Text == "Имя")
+    
+
+            if (comboboxForSearch.Text == "Имя")
             {
-                employee_Table_Window.Data_output();
+                
+                if(textboxFilterName.Text !="")
+                {
+                    FilterName = textboxFilterName.Text;
+                    employee_Table_Window.Data_output();
+                   
+                }
+                   
+                
+
             }
-            Close();
+           
+
+        }
+
+        public string FilterName { get; set; }
+        
+
+        private void textboxFilterName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

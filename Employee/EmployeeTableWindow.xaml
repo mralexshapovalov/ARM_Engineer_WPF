@@ -45,7 +45,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>
-        <TextBox x:Name="textBoxFilterName"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" />
+        <TextBox x:Name="textBoxFilterNames"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" TextChanged="textBoxFilterNames_TextChanged" />
         <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
         <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="256,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="18" Grid.Column="1"/>
         <Button x:Name="buttonDateSelect" Content="..." HorizontalAlignment="Left" Margin="437,22,0,0" VerticalAlignment="Top" Height="18" Width="24" Click="buttonOrganizationSelect_Click" Grid.Column="1"/>

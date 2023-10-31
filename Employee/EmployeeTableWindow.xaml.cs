@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace ARM_Engineer.Employee
 {
     enum valueForFilter
@@ -32,30 +33,38 @@ namespace ARM_Engineer.Employee
         Organization filterOrganization;
         NpgsqlDataAdapter dataAdapter;
         FilterWindow filterWindow = new FilterWindow();
+
         public Employee_Table_Window()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            InitializeComponent();
+            InitializeComponent();        
             Data_output();
+            filterWindow.FilterName = "Тит";
+
+
         }
+
         public void Data_output()
         {
+
+
             string filter = "";
             List<string> filters = new List<string>();
-            
-            if (filterWindow.textboxFilterName.Text!= "")
+
+            if (filterWindow.FilterName != null)
             {
-                filters.Add(" \"name\" LIKE " + "'%" + filterWindow.textboxFilterName + "%'");
-            }
-            if(filterOrganization != null)
-            {
-                filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
+                filters.Add(" \"name\" LIKE " + "'%" + "Тит" + "%'");
             }
 
-            if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
-            {
-                filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
-            }
+            //if (filterOrganization != null)
+            //{
+            //    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
+            //}
+
+            //if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
+            //{
+            //    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
+            //}
 
             for (int i = 0; i < filters.Count; i++)
             {
@@ -205,8 +214,14 @@ namespace ARM_Engineer.Employee
             {
 
                 if ((e.KeyboardDevice.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-                    filterWindow.Show();
+                    filterWindow.ShowDialog();
+              
             }
+        }
+
+        private void textBoxFilterNames_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
