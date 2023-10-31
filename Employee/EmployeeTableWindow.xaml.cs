@@ -47,7 +47,6 @@ namespace ARM_Engineer.Employee
         public void Data_output()
         {
 
-
             string filter = "";
             List<string> filters = new List<string>();
 
