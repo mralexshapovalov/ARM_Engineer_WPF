@@ -139,7 +139,6 @@ namespace ARM_Engineer.Employee
                 textBoxOrganization.Text = model.Organization.Name;
             }
         }
-
         private void buttonDivisionSelect_Click(object sender, RoutedEventArgs e)
         {
             DivisionWindow divisionWindow = new DivisionWindow();
@@ -151,7 +150,6 @@ namespace ARM_Engineer.Employee
                 textBoxDivision.Text = model.Division.Name;
             }
         }
-
         private void buttonPostSelect_Click(object sender, RoutedEventArgs e)
         {
             PostWindow postWindow = new PostWindow();

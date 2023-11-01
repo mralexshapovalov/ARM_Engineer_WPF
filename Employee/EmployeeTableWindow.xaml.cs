@@ -32,27 +32,34 @@ namespace ARM_Engineer.Employee
         DataTable dataTable;
         Organization filterOrganization;
         NpgsqlDataAdapter dataAdapter;
-        FilterWindow filterWindow = new FilterWindow();
-
+        string name;
+        Employee model;
         public Employee_Table_Window()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();        
             Data_output();
-            filterWindow.FilterName = "Тит";
-
-
         }
+
+        public string OpenMessageBoxShow(string name)
+        {
+            this.name = name;
+           
+            return name;
+        }
+
 
         public void Data_output()
         {
-
-            string filter = "";
+           
+            FilterWindow filterWindow = new FilterWindow();
+            
+                        string filter = "";
             List<string> filters = new List<string>();
 
-            if (filterWindow.FilterName != null)
+            if (OpenMessageBoxShow(name) != null)
             {
-                filters.Add(" \"name\" LIKE " + "'%" + "Тит" + "%'");
+                filters.Add(" \"name\" LIKE " + "'%" + filterWindow.filterName + "%'");
             }
 
             //if (filterOrganization != null)
@@ -190,13 +197,10 @@ namespace ARM_Engineer.Employee
                 textBoxOrganization.Text = organizationWindow.selectedItem.Name;
             }
         }
-
         private void buttonSelectDataPicker_Click(object sender, RoutedEventArgs e)
         {
               Data_output();
         }
-
-       
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             dataPicker_Test1.SelectedDate = null;
@@ -204,7 +208,6 @@ namespace ARM_Engineer.Employee
             dataGridEmployeeTable.Items.Refresh();
             Data_output();
         }
-
         private void dataGridEmployeeTable_KeyDown(object sender, KeyEventArgs e)
         {
             FilterWindow filterWindow = new FilterWindow();
@@ -217,7 +220,6 @@ namespace ARM_Engineer.Employee
               
             }
         }
-
         private void textBoxFilterNames_TextChanged(object sender, TextChangedEventArgs e)
         {
 

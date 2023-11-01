@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,7 +20,10 @@ namespace ARM_Engineer.Employee
     /// </summary>
     public partial class FilterWindow : Window
     {
+        public string FilterName { get { return textboxFilterName.Text; } set { } }
         Employee model;
+        string valueString;
+        Employee_Table_Window employee_Table_Window;
         public FilterWindow()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
@@ -28,6 +32,8 @@ namespace ARM_Engineer.Employee
             comboboxForSearch.Items.Add("ID");
             comboboxForSearch.Items.Add("Имя");
             comboboxForSearch.Items.Add("Организация");
+    
+         
         }
 
         private void buttonClouse_Click(object sender, RoutedEventArgs e)
@@ -35,39 +41,33 @@ namespace ARM_Engineer.Employee
             Close();
         }
 
-        private void comboboxForSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+      
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-            Employee_Table_Window employee_Table_Window = new Employee_Table_Window();
-    
+            employee_Table_Window=new Employee_Table_Window();
+
+
 
             if (comboboxForSearch.Text == "Имя")
             {
-                
+               valueString= textboxFilterName.Text;
                 if(textboxFilterName.Text !="")
                 {
-                    FilterName = textboxFilterName.Text;
-                    employee_Table_Window.Data_output();
-                   
+                    employee_Table_Window.OpenMessageBoxShow(valueString);
                 }
-                   
-                
-
             }
-           
-
         }
-
-        public string FilterName { get; set; }
-        
-
-        private void textboxFilterName_TextChanged(object sender, TextChangedEventArgs e)
+        public string ReturnValue()
         {
-
+            return valueString;
         }
+
+        public string filterName { get; set; } 
+
+
+
+
+
     }
 }
