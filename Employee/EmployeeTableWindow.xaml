@@ -31,7 +31,7 @@
                   ColumnHeaderHeight="40"  RowHeight="30" FontSize="14" 
                   AlternatingRowBackground="#fafafa" 
                   GridLinesVisibility="None" 
-                  FontFamily="Arial" KeyDown="dataGridEmployeeTable_KeyDown">
+                  FontFamily="Arial" KeyDown="dataGridEmployeeTable_KeyDown" MouseDoubleClick="dataGridEmployeeTable_MouseDoubleClick">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="60"/>

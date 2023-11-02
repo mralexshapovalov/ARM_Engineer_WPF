@@ -35,14 +35,14 @@ namespace ARM_Engineer.Employee
         string nameLink;
         Employee model;
         bool isFilter = false;
+        string s = "";
+        FilterWindow filterWindow = new FilterWindow();
         public Employee_Table_Window()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();        
-            Data_output("");
+            Data_output();
         }
-
-       
 
         public void Filter(string names)
         {
@@ -82,50 +82,48 @@ namespace ARM_Engineer.Employee
                 filter = "WHERE" + filter;
             }
             nameLink = filter;
-            Data_output(filter);
             
         }
 
-
-        public void Data_output(string filter = "")
+        public void Data_output(string names ="")
         {
-           
-            //FilterWindow filterWindow = new FilterWindow();
-            
-                        
-            //List<string> filters = new List<string>();
 
-            //if (OpenMessageBoxShow(name) != null)
+      
+            string filter = "";
+            List<string> filters = new List<string>();
+
+            if (names != null)
+            {
+                filters.Add("\"name\" LIKE " + "'%" + names + "%'");
+            }
+
+            //if (filterOrganization != null)
             //{
-            //    filters.Add(" \"name\" LIKE " + "'%" + filterWindow.filterName + "%'");
+            //    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
             //}
 
-            ////if (filterOrganization != null)
-            ////{
-            ////    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
-            ////}
-
-            ////if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
-            ////{
-            ////    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
-            ////}
-
-            //for (int i = 0; i < filters.Count; i++)
+            //if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
             //{
-            //    if (i == filters.Count - 1)
-            //    {
-            //        filter = filter + filters[i];
-            //    }
-            //    else
-            //    {
-            //        filter = filter + filters[i] + " AND ";
-            //    }
+            //    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
             //}
 
-            //if (filter != "")
-            //{
-            //    filter = "WHERE" + filter;
-            //}
+            for (int i = 0; i < filters.Count; i++)
+            {
+                if (i == filters.Count - 1)
+                {
+                    filter = filter + filters[i];
+                }
+                else
+                {
+                    filter = filter + filters[i] + " AND ";
+                }
+            }
+
+            if (filter != "")
+            {
+                filter = "WHERE" + filter;
+            }
+            nameLink = names;
 
             NpgsqlCommand npgc;
             list = new List<Employee>();
@@ -134,10 +132,6 @@ namespace ARM_Engineer.Employee
                 npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" "+ filter, DataBase.newConnection);
             
          
-            
-            
-            
-
             //NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + filter, DataBase.newConnection);
             NpgsqlDataReader reader = npgc.ExecuteReader();
 
@@ -172,10 +166,10 @@ namespace ARM_Engineer.Employee
             Employee_Window employee_Window = new Employee_Window("Добавить", new Employee());
             employee_Window.Title = "Статус согласование(Добавить)";
             employee_Window.ShowDialog();
-
+           
             if (employee_Window.DialogResult == true)
             {
-                Data_output("Добавить");
+                Data_output();
             }
         }
         private void Employee_Table_dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -190,7 +184,7 @@ namespace ARM_Engineer.Employee
         }
         private void ApplyFilters_Click(object sender, RoutedEventArgs e)
         {
-            Data_output("Добавить"); 
+            Data_output(); 
         }
         private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -201,7 +195,7 @@ namespace ARM_Engineer.Employee
                 employee_Window.ShowDialog();
                 if (employee_Window.DialogResult == true)
                 {
-                    Data_output("Добавить");
+                    Data_output();
                 }
             }
         }
@@ -214,7 +208,7 @@ namespace ARM_Engineer.Employee
                 employee_Window.ShowDialog();
                 if (employee_Window.DialogResult == true)
                 {
-                    Data_output("Добавить");
+                    Data_output();
                 }
             }
         }
@@ -229,7 +223,7 @@ namespace ARM_Engineer.Employee
                     cmd.Parameters.AddWithValue("@id", request.ID);
                     cmd.ExecuteNonQuery();
                 }
-                Data_output("Добавить");
+                Data_output();
             }
         }
         private void buttonOrganizationSelect_Click(object sender, RoutedEventArgs e)
@@ -246,35 +240,47 @@ namespace ARM_Engineer.Employee
         }
         private void buttonSelectDataPicker_Click(object sender, RoutedEventArgs e)
         {
-              Data_output("Добавить");
+              Data_output();
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             dataPicker_Test1.SelectedDate = null;
             dataPicker_Test2.SelectedDate = null;
             dataGridEmployeeTable.Items.Refresh();
-            Data_output("Добавить");
+            Data_output();
         }
         private void dataGridEmployeeTable_KeyDown(object sender, KeyEventArgs e)
         {
-            FilterWindow filterWindow = new FilterWindow();
 
             if (e.Key == Key.F)
             {
 
                 if ((e.KeyboardDevice.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-                    filterWindow.Show();
-                if(filterWindow.DialogResult == true)
                 {
-                    Data_output();
+                    filterWindow.ShowDialog();
+                }
+                if(filterWindow.IsBoolen ==  true)
+                {
+                    MessageBox.Show(nameLink);
+                   // Data_output();
                 }
 
-               
-                    
-               // "WHERE\"name\" LIKE '%Титов%'";
+                // "WHERE\"name\" LIKE '%Титов%'";
 
             }
+          
         }
-        
+
+        private void dataGridEmployeeTable_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGrid x = (DataGrid)this.FindName("dataGridEmployeeTable");
+            var index = x.SelectedIndex;
+
+            MessageBox.Show(index.ToString());
+
+
+        }
+
+
     }
 }

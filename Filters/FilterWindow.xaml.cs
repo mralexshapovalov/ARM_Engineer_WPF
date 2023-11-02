@@ -23,6 +23,8 @@ namespace ARM_Engineer.Employee
         public string FilterName { get { return textboxFilterName.Text; } set { } }
         Employee model;
         string valueString;
+        public bool IsBoolen = false;
+
         Employee_Table_Window employee_Table_Window;
         public FilterWindow()
         {
@@ -54,8 +56,13 @@ namespace ARM_Engineer.Employee
                valueString= textboxFilterName.Text;
                 if(textboxFilterName.Text !="")
                 {
-                    employee_Table_Window.Filter(valueString);
-                    Close();
+                    employee_Table_Window.Data_output(valueString);
+                    IsBoolen = true;
+                    if(IsBoolen == true)
+                    {
+                        Close();
+                    }
+                    
                 }
             }
          
