@@ -54,9 +54,11 @@ namespace ARM_Engineer.Employee
                valueString= textboxFilterName.Text;
                 if(textboxFilterName.Text !="")
                 {
-                    employee_Table_Window.OpenMessageBoxShow(valueString);
+                    employee_Table_Window.Filter(valueString);
+                    Close();
                 }
             }
+         
         }
         public string ReturnValue()
         {
