@@ -56,7 +56,7 @@ namespace ARM_Engineer.Employee
                valueString= textboxFilterName.Text;
                 if(textboxFilterName.Text !="")
                 {
-                    employee_Table_Window.Data_output(valueString);
+                    employee_Table_Window.Filter(ref valueString);
                     IsBoolen = true;
                     if(IsBoolen == true)
                     {

@@ -44,13 +44,18 @@ namespace ARM_Engineer.Employee
             Data_output();
         }
 
-        public void Filter(string names)
+        
+        static void sfs()
+        {
+
+        }
+        public string Filter( ref string names)
         {
             FilterWindow filterWindow = new FilterWindow();
             string filter = "";
             List<string> filters = new List<string>();
 
-            if (names != null)
+            if (names != null && names !="")
             {
                 filters.Add("\"name\" LIKE " + "'%" + names + "%'");
             }
@@ -81,49 +86,130 @@ namespace ARM_Engineer.Employee
             {
                 filter = "WHERE" + filter;
             }
-            nameLink = filter;
+
+            
+            return filter;
             
         }
+
+
+        public void Data_output_Filter(string a)
+        {
+          
+
+            //string filter = "";
+            //List<string> filters = new List<string>();
+
+            //if (names != null)
+            //{
+            //    filters.Add("\"name\" LIKE " + "'%" + names + "%'");
+            //}
+
+            ////if (filterOrganization != null)
+            ////{
+            ////    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
+            ////}
+
+            ////if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
+            ////{
+            ////    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
+            ////}
+
+            //for (int i = 0; i < filters.Count; i++)
+            //{
+            //    if (i == filters.Count - 1)
+            //    {
+            //        filter = filter + filters[i];
+            //    }
+            //    else
+            //    {
+            //        filter = filter + filters[i] + " AND ";
+            //    }
+            //}
+
+            //if (filter != "")
+            //{
+            //    filter = "WHERE" + filter;
+            //}
+            //nameLink = names;
+
+            NpgsqlCommand npgc;
+            list = new List<Employee>();
+
+
+            npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + a, DataBase.newConnection);;
+
+
+            //NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + filter, DataBase.newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new Employee());
+                    list.Last().ID = reader.GetInt32("id");
+                    list.Last().Service_number = reader.GetString("service_number");
+                    list.Last().Name = reader.GetString("name");
+                    list.Last().DataEmployee = reader.GetDateTime("date_employee");
+                    list.Last().DateDismissial = reader.GetDateTime("date_dismissal");
+                    list.Last().ID_Orgainzation = reader.GetInt32("id_organization");
+                    list.Last().YearOfBirth = reader.GetDateTime("year_birth");
+                    list.Last().ID_Division = reader.GetInt32("id_division");
+                    list.Last().ID_Post = reader.GetInt32("id_post");
+                }
+                dataGridEmployeeTable.ItemsSource = list;
+            }
+            else
+            {
+                dataGridEmployeeTable.ItemsSource = null;
+                //dataPicker_Test1.SelectedDate = null;
+                //dataPicker_Test2.SelectedDate = null;
+            }
+
+            reader.Close();
+        }
+
 
         public void Data_output(string names ="")
         {
 
       
             string filter = "";
-            List<string> filters = new List<string>();
+            //List<string> filters = new List<string>();
 
-            if (names != null)
-            {
-                filters.Add("\"name\" LIKE " + "'%" + names + "%'");
-            }
-
-            //if (filterOrganization != null)
+            //if (names != null)
             //{
-            //    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
+            //    filters.Add("\"name\" LIKE " + "'%" + names + "%'");
             //}
 
-            //if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
+            ////if (filterOrganization != null)
+            ////{
+            ////    filters.Add(" \"id_organization\" = " + "" + filterOrganization.ID + "");
+            ////}
+
+            ////if(dataPicker_Test1.SelectedDate != null || dataPicker_Test2.SelectedDate != null)
+            ////{
+            ////    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
+            ////}
+
+            //for (int i = 0; i < filters.Count; i++)
             //{
-            //    filters.Add("\"date_employee\" >= "+"'"+ dataPicker_Test1.SelectedDate.Value + "'" + " AND " + "\"date_employee\" <= "+ ""+"'" + dataPicker_Test2.SelectedDate.Value + "'");
+            //    if (i == filters.Count - 1)
+            //    {
+            //        filter = filter + filters[i];
+            //    }
+            //    else
+            //    {
+            //        filter = filter + filters[i] + " AND ";
+            //    }
             //}
 
-            for (int i = 0; i < filters.Count; i++)
-            {
-                if (i == filters.Count - 1)
-                {
-                    filter = filter + filters[i];
-                }
-                else
-                {
-                    filter = filter + filters[i] + " AND ";
-                }
-            }
-
-            if (filter != "")
-            {
-                filter = "WHERE" + filter;
-            }
-            nameLink = names;
+            //if (filter != "")
+            //{
+            //    filter = "WHERE" + filter;
+            //}
+            //nameLink = names;
 
             NpgsqlCommand npgc;
             list = new List<Employee>();
@@ -254,15 +340,18 @@ namespace ARM_Engineer.Employee
 
             if (e.Key == Key.F)
             {
-
+                string a = filterWindow.ReturnValue(); ;
+                string q;
                 if ((e.KeyboardDevice.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
                 {
                     filterWindow.ShowDialog();
+                    
                 }
                 if(filterWindow.IsBoolen ==  true)
                 {
+                   
                     MessageBox.Show(nameLink);
-                   // Data_output();
+                   
                 }
 
                 // "WHERE\"name\" LIKE '%Титов%'";
