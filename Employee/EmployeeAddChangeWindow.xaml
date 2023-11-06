@@ -5,76 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="Employee_Window" Height="424" Width="540">
-    <Grid Margin="0,0,0,3">
+        Title="Employee_Window" Height="440" Width="540" ResizeMode="NoResize">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="107*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="105*"/>
         </Grid.RowDefinitions>
         <Label  x:Name="labelOutputLastnameFirstnamePatronymic" HorizontalAlignment="Left" Margin="22,1,0,0" VerticalAlignment="Top" Width="489" Height="46" FontSize="24" FontWeight="Bold" x:FieldModifier="public"></Label>
-        <TextBox x:Name="textBoxTableNumber"  HorizontalAlignment="Left" Margin="155,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Height="23" Grid.Row="1" x:FieldModifier="public" >
+        <TextBox x:Name="textBoxTableNumber"  HorizontalAlignment="Left" Margin="154,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91" Height="23" Grid.Row="1" x:FieldModifier="public" >
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label x:Name="labelServicNumber" Content="Табельный номер :" HorizontalAlignment="Left" Margin="26,26,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" x:FieldModifier="public" FontFamily="Arial"/>
-        <Label x:Name="labelName" Content="Наименование :" HorizontalAlignment="Left" Margin="26,65,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" x:FieldModifier="public" FontFamily="Arial"/>
-        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="155,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="22" Grid.Row="1" x:FieldModifier="public">
+        <Label x:Name="labelServicNumber" Content="Табельный номер :" HorizontalAlignment="Left" Margin="25,13,0,0" VerticalAlignment="Top" Width="128" Grid.Row="1" x:FieldModifier="public" FontFamily="Arial" Height="24"/>
+        <Label x:Name="labelName" Content="Наименование :" HorizontalAlignment="Left" Margin="25,52,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" x:FieldModifier="public" FontFamily="Arial" Height="24"/>
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Margin="154,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="22" Grid.Row="1" x:FieldModifier="public">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button x:Name="buttoRecordClose" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top" Width="136" Height="28" Click="Record_close_Button_Click" x:FieldModifier="public" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747">
+        <Button x:Name="buttoRecordClose" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="22,57,0,0" VerticalAlignment="Top" Width="136" Height="28" Click="Record_close_Button_Click" x:FieldModifier="public" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="buttonRecord" Content="Записать" HorizontalAlignment="Left" Margin="176,47,0,0" VerticalAlignment="Top" Width="79" Height="28" Click="Record_Button_Click" x:FieldModifier="public" Background="White" FontFamily="Arial">
+        <Button x:Name="buttonRecord" Content="Записать" HorizontalAlignment="Left" Margin="167,57,0,0" VerticalAlignment="Top" Width="79" Height="28" Click="Record_Button_Click" x:FieldModifier="public" Background="White" FontFamily="Arial">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <DatePicker x:Name="datePickerDateEmployment" HorizontalAlignment="Left" Margin="175,133,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" x:FieldModifier="public" />
-        <Label  Content="Дата приема на работу :" HorizontalAlignment="Left" Margin="26,130,0,0" VerticalAlignment="Top" Width="158" Grid.Row="1" FontFamily="Arial"  />
-        <DatePicker x:Name="datePickerDateDeletion" HorizontalAlignment="Left" Margin="175,162,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1"/>
-        <Label Content="Дата увольнения :&#xD;&#xA;" HorizontalAlignment="Left" Margin="26,162,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1" FontFamily="Arial"  />
-        <Label Content="Организация :" HorizontalAlignment="Left" Margin="26,197,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" />
-        <Label Content="Должность: " HorizontalAlignment="Left" Margin="26,259,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial"  />
-        <Label Content="Подразделение :" HorizontalAlignment="Left" Margin="26,228,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" />
-        <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="144,201,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="22">
+        <DatePicker x:Name="datePickerDateEmployment" HorizontalAlignment="Left" Margin="174,120,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" x:FieldModifier="public" Height="24" />
+        <Label  Content="Дата приема на работу :" HorizontalAlignment="Left" Margin="25,117,0,0" VerticalAlignment="Top" Width="158" Grid.Row="1" FontFamily="Arial" Height="24"  />
+        <DatePicker x:Name="datePickerDateDeletion" HorizontalAlignment="Left" Margin="174,149,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" Height="24"/>
+        <Label Content="Дата увольнения :&#xD;&#xA;" HorizontalAlignment="Left" Margin="25,149,0,0" VerticalAlignment="Top" Width="116" Grid.Row="1" FontFamily="Arial" Height="38"  />
+        <Label Content="Организация :" HorizontalAlignment="Left" Margin="25,184,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" Height="24" />
+        <Label Content="Должность: " HorizontalAlignment="Left" Margin="25,246,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" Height="24"  />
+        <Label Content="Подразделение :" HorizontalAlignment="Left" Margin="25,215,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" Height="24" />
+        <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="143,188,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" Height="22">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <TextBox  x:Name="textBoxDivision" HorizontalAlignment="Left" Margin="144,232,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Height="22">
+        <TextBox  x:Name="textBoxDivision" HorizontalAlignment="Left" Margin="143,219,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Height="22">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <TextBox  x:Name="textBoxPost" HorizontalAlignment="Left" Margin="144,263,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Height="22">
+        <TextBox  x:Name="textBoxPost" HorizontalAlignment="Left" Margin="143,250,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="270" Height="22">
             <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label x:Name="Name_Label_Copy" Content="Дата роджения :" HorizontalAlignment="Left" Margin="26,99,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial"/>
-        <DatePicker x:Name="DateYearBirth_employment_DatePicker" HorizontalAlignment="Left" Margin="175,101,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1"/>
-        <Button x:Name="buttonOrganizationSelect" Content="..." HorizontalAlignment="Left" Margin="393,202,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20" Width="21" Click="buttonOrganizationSelect_Click" Background="White" BorderBrush="{x:Null}"/>
-        <Button x:Name="buttonDivisionSelect" Content="..." HorizontalAlignment="Left" Margin="393,232,0,0" Grid.Row="1" VerticalAlignment="Top" Width="21" Height="22" Click="buttonDivisionSelect_Click" Background="White" BorderBrush="{x:Null}"/>
-        <Button x:Name="buttonPostSelect" Content="..." HorizontalAlignment="Left" Margin="393,264,0,0" Grid.Row="1" VerticalAlignment="Top" Width="21" Height="20" Click="buttonPostSelect_Click" Background="#FFFFFDFD" BorderBrush="{x:Null}"/>
+        <Label x:Name="Name_Label_Copy" Content="Дата роджения :" HorizontalAlignment="Left" Margin="25,86,0,0" VerticalAlignment="Top" Width="118" Grid.Row="1" FontFamily="Arial" Height="24"/>
+        <DatePicker x:Name="DateYearBirth_employment_DatePicker" HorizontalAlignment="Left" Margin="174,88,0,0" VerticalAlignment="Top" Width="160" Grid.Row="1" Height="24"/>
+        <Button x:Name="buttonOrganizationSelect" Content="..." HorizontalAlignment="Left" Margin="392,189,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20" Width="21" Click="buttonOrganizationSelect_Click" Background="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="buttonDivisionSelect" Content="..." HorizontalAlignment="Left" Margin="392,219,0,0" Grid.Row="1" VerticalAlignment="Top" Width="20" Height="21" Click="buttonDivisionSelect_Click" Background="White" BorderBrush="{x:Null}"/>
+        <Button x:Name="buttonPostSelect" Content="..." HorizontalAlignment="Left" Margin="392,251,0,0" Grid.Row="1" VerticalAlignment="Top" Width="20" Height="21" Click="buttonPostSelect_Click" Background="#FFFFFDFD" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>

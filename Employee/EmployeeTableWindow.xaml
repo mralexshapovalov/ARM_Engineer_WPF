@@ -53,7 +53,13 @@
         </Button>
 
 
-        <Button x:Name="buttonCallengFilter" Content="Отмена фильтра" HorizontalAlignment="Left" Margin="101,20,0,0" VerticalAlignment="Top" Width="100" Click="buttonCallengFilter_Click" Visibility="Hidden"/>
+        <Button x:Name="buttonCallengFilter" Content="Отменить фильтр" HorizontalAlignment="Left" Margin="104,18,0,0" VerticalAlignment="Top" Width="109" Click="buttonCallengFilter_Click" Visibility="Collapsed" Height="25" FontFamily="Arial" Background="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <Label x:Name="lableFilter" HorizontalAlignment="Left" Margin="13,52,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Arial" BorderBrush="#FF707070" Background="#FFFEF2C7" Foreground="#FF3A3A3A" Visibility="Collapsed"/>
 
     </Grid>

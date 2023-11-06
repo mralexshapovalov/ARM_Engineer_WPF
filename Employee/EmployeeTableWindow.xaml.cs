@@ -95,8 +95,7 @@ namespace ARM_Engineer.Employee
 
             list = new List<Employee>();
             
-            NpgsqlCommand npgc; npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" "+ valueString, DataBase.newConnection); 
-            //NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" " + filter, DataBase.newConnection);
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" "+ valueString, DataBase.newConnection); 
             NpgsqlDataReader reader = npgc.ExecuteReader();
 
             if (reader.HasRows)//Если пришли результаты
@@ -120,11 +119,9 @@ namespace ARM_Engineer.Employee
             {
                 dataGridEmployeeTable.ItemsSource = null;
                 MessageBox.Show("Запрашиваемые данные ней найдены.Повторите запрос снова","Внимание");
-                //dataPicker_Test1.SelectedDate = null;
-                //dataPicker_Test2.SelectedDate = null;
             }
 
-            if(Filter()!="")
+            if(Filter() != "")
             {
                 buttonCallengFilter.Visibility = Visibility.Visible;
             }
@@ -153,10 +150,6 @@ namespace ARM_Engineer.Employee
                     dataGridEmployeeTable.Columns.RemoveAt(dataGridEmployeeTable.Columns.Count - 1);
                 }
             }
-        }
-        private void ApplyFilters_Click(object sender, RoutedEventArgs e)
-        {
-            Data_output(); 
         }
         private void dataGridEmployeeTable_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -198,23 +191,6 @@ namespace ARM_Engineer.Employee
                 Data_output();
             }
         }
-        private void buttonOrganizationSelect_Click(object sender, RoutedEventArgs e)
-        {
-            //OrganizationWindow organizationWindow = new OrganizationWindow();
-            //organizationWindow.ShowDialog();
-
-            //if (organizationWindow.DialogResult == true)
-            //{
-            //    filterOrganization = new Organization();
-            //    filterOrganization.ID = organizationWindow.selectedItem.ID;
-            //    textBoxOrganization.Text = organizationWindow.selectedItem.Name;
-            //}
-        }
-        //private void buttonSelectDataPicker_Click(object sender, RoutedEventArgs e)
-        //{
-        //      Data_output();
-        //}
-       
         private void dataGridEmployeeTable_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F)

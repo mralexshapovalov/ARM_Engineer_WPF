@@ -86,33 +86,27 @@ namespace ARM_Engineer.Employee
             }
         }
 
-        private void comboboxForSearch_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void comboboxForSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            employee_Table_Window = new Employee_Table_Window();
-            if (comboboxForSearch.Text == "Имя")
+            ComboBox comboBox = sender as ComboBox;
+            ComboBoxItem selectedItem = comboBox.SelectedItem as ComboBoxItem;
+           
+            if (comboBox.SelectedItem == "Имя")
             {
-                buttonSearchOrganization.Visibility=Visibility.Collapsed;
-                combotext = comboboxForSearch.Text;
-                sendtext = textboxFilterName.Text;
-                employee_Table_Window.Filter();
-
-                Close();
+                textboxFilterName.IsEnabled = true;
             }
-            else if (comboboxForSearch.Text == "Организация")
+            else if (comboBox.SelectedItem == "Организация")
             {
-                combotext = comboboxForSearch.Text;
-                sendtext = textboxFilterName.Text;
-                orgainzationId = filterOrganization.ID;
-                employee_Table_Window.Filter();
-                Close();
+                textboxFilterName.IsEnabled = false;
+                buttonSearchOrganization.Visibility = Visibility.Visible;
             }
-            else if (comboboxForSearch.Text == "Дата")
+            else if (comboBox.SelectedItem == "Дата")
             {
-                combotext = comboboxForSearch.Text;
-                datePickerFrom = dataPickerEditFrom.SelectedDate.Value;
-                datePickerTo = dataPickerEditTo.SelectedDate.Value;
-                employee_Table_Window.Filter();
-                Close();
+               textboxFilterName.Visibility = Visibility.Collapsed;
+               dataPickerEditFrom.Visibility = Visibility.Visible;
+               dataPickerEditTo.Visibility = Visibility.Visible;
+               labelPeriodFrom.Visibility = Visibility.Visible;
+               labelPeriodTo.Visibility = Visibility.Visible;
             }
         }
     }

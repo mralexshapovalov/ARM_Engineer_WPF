@@ -5,18 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="Поиск" Height="231" Width="414">
+        Title="Поиск" Height="231" Width="414" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-16">
-        <Label Content="Найти" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontFamily="Arial"/>
+        <Label Content="Найти" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Arial"/>
         <Label Content="Где искать:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
         <Label Content="Что искать:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
-        <Button x:Name="buttonSearch" Content="Найти" HorizontalAlignment="Left" Margin="258,163,0,0" VerticalAlignment="Top" Width="62" Click="buttonSearch_Click" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747" Height="20"/>
-        <Button x:Name="buttonClouse" Content="Закрыть" HorizontalAlignment="Left" Margin="329,163,0,0" VerticalAlignment="Top" Width="55" Click="buttonClouse_Click" Background="White" />
-        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263"  Height="24" />
-        <ComboBox x:Name="comboboxForSearch" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" Width="263" Height="24" MouseLeftButtonDown="comboboxForSearch_MouseLeftButtonDown" Background="#FFFFFDFD"  />
-        <Button x:Name="buttonSearchOrganization" Content="..." HorizontalAlignment="Left" Margin="361,85,0,0" VerticalAlignment="Top" Height="24" Width="33" Click="buttonSearchOrganization_Click" Background="White" />
-        <DatePicker x:Name="dataPickerEditFrom" HorizontalAlignment="Left" Margin="98,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11"/>
-        <DatePicker x:Name="dataPickerEditTo" HorizontalAlignment="Left" Margin="234,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11"/>
+        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="286"  Height="24" FontFamily="Arial" >
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+        <ComboBox x:Name="comboboxForSearch" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" Width="286" Height="24" Background="{x:Null}" SelectionChanged="comboboxForSearch_SelectionChanged"  />
+        <DatePicker x:Name="dataPickerEditFrom" HorizontalAlignment="Left" Margin="161,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11" Width="100" Visibility="Collapsed" />
+        <DatePicker x:Name="dataPickerEditTo" HorizontalAlignment="Left" Margin="284,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11" Width="100" Visibility="Collapsed" />
+        <Button x:Name="buttonSearch" Content="Найти" HorizontalAlignment="Left" Margin="258,163,0,0" VerticalAlignment="Top" Width="62" Click="buttonSearch_Click" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747" Height="20">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="buttonClouse" Content="Закрыть" HorizontalAlignment="Left" Margin="329,163,0,0" VerticalAlignment="Top" Width="55" Click="buttonClouse_Click" Background="White" FontFamily="Arial" Height="20" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="buttonSearchOrganization" Content="..." HorizontalAlignment="Left" Margin="363,86,0,0" VerticalAlignment="Top" Height="22" Width="21" Click="buttonSearchOrganization_Click" Background="White" BorderBrush="{x:Null}" Visibility="Collapsed">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label x:Name="labelPeriodFrom" Content="Период c :" HorizontalAlignment="Left" Margin="94,83,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Label x:Name="labelPeriodTo" Content="по: " HorizontalAlignment="Left" Margin="254,83,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
 
     </Grid>
 </Window>
