@@ -1,5 +1,6 @@
 ﻿using ARM_Engineer.Approval_status;
 using ARM_Engineer.Employee;
+using ARM_Engineer.Part;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,14 @@ namespace ARM_Engineer
         {
             Employee_Table_Window employee_Table_Window = new Employee_Table_Window();
             employee_Table_Window.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Part_Window part_Window = new Part_Window();
+            part_Window.Show();
+
+
         }
     }
 }

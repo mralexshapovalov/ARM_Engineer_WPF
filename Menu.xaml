@@ -54,6 +54,7 @@
                     <Label Content="Справочники" HorizontalAlignment="Left" Margin="38,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
                     <Label Content="Документы" HorizontalAlignment="Left" Margin="38,241,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
                     <Label Content="Создать" HorizontalAlignment="Left" Margin="474,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="487,122,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click_1"/>
                 </Grid>
             </TabItem>
 
