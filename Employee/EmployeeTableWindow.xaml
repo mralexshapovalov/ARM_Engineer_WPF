@@ -22,7 +22,7 @@
         </Grid.ContextMenu>
         <DataGrid x:Name="dataGridEmployeeTable" d:ItemsSource="{d:SampleData ItemCount=2 }" IsReadOnly="True" 
                   ColumnWidth="*"
-                  Margin="0,56,0,10" 
+                  Margin="0,83,0,10" 
                   AutoGenerateColumns="False" 
                   ItemsSource="{Binding}" 
                   AutoGeneratingColumn="Employee_Table_dataGrid_AutoGeneratingColumn" 
@@ -44,15 +44,17 @@
                 <DataGridTextColumn Binding="{Binding Post.Name}" Header="Текущая должность организации" Width="450" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="74" Click="Add_Employee_Button_Click" Height="20"/>
-        <TextBox x:Name="textBoxFilterNames"  HorizontalAlignment="Left" Margin="165,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Grid.ColumnSpan="2" Height="18" />
-        <Label Grid.Column="1" Content="Имя сотрудника" HorizontalAlignment="Left" Margin="32,1,0,0" VerticalAlignment="Top" Width="106" Height="30"/>
-        <TextBox  x:Name="textBoxOrganization" HorizontalAlignment="Left" Margin="256,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="18" Grid.Column="1"/>
-        <Button x:Name="buttonDateSelect" Content="..." HorizontalAlignment="Left" Margin="437,22,0,0" VerticalAlignment="Top" Height="18" Width="24" Click="buttonOrganizationSelect_Click" Grid.Column="1"/>
-        <DatePicker x:Name="dataPicker_Test1" Grid.Column="1" Margin="474,22,209,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
-        <DatePicker x:Name="dataPicker_Test2" Grid.Column="1" HorizontalAlignment="Left" Margin="583,22,0,0" VerticalAlignment="Top" Height="18" FontSize="9"/>
-        <Button x:Name="buttonSelectDataPicker" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="673,22,0,0" VerticalAlignment="Top" Width="56" Click="buttonSelectDataPicker_Click"/>
-        <Button Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="767,22,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="88" Click="Button_Click_1"/>
+        <Button x:Name="buttonAddEmployee" Content="Добавить" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="82" Click="Add_Employee_Button_Click" Height="25" FontFamily="Arial" Background="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Button x:Name="buttonCallengFilter" Content="Отмена фильтра" HorizontalAlignment="Left" Margin="101,20,0,0" VerticalAlignment="Top" Width="100" Click="buttonCallengFilter_Click" Visibility="Hidden"/>
+        <Label x:Name="lableFilter" HorizontalAlignment="Left" Margin="13,52,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Arial" BorderBrush="#FF707070" Background="#FFFEF2C7" Foreground="#FF3A3A3A" Visibility="Collapsed"/>
 
     </Grid>
 

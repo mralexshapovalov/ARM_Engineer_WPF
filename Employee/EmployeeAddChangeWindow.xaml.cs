@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ARM_Engineer.Employee
 {
-    /// <summary>
-    /// Interaction logic for Employee_Window.xaml
-    /// </summary>
     public partial class Employee_Window : Window
     {
         string openMode;
@@ -84,7 +81,7 @@ namespace ARM_Engineer.Employee
             }
             else if (openMode == "Изменить")
             {
-                Title = "Статус согласование(Изменить)";
+                Title = "Изменить карточку сотрудника";
                 try
                 {
                     NpgsqlCommand cmd = new NpgsqlCommand("update \"Employee\" SET \"service_number\" = @service_number,\"name\"=@name," +

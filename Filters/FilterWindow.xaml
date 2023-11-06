@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Employee"
         mc:Ignorable="d"
-        Title="FilterWindow" Height="231" Width="414">
+        Title="Поиск" Height="231" Width="414">
     <Grid Margin="0,0,0,-16">
         <Label Content="Найти" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" FontFamily="Arial"/>
         <Label Content="Где искать:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
-        <Label Content="Что искать:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
-        <Button x:Name="buttonSearch" Content="Найти" HorizontalAlignment="Left" Margin="258,163,0,0" VerticalAlignment="Top" Width="60" Click="buttonSearch_Click"/>
-        <Button x:Name="buttonClouse" Content="Закрыть" HorizontalAlignment="Left" Margin="329,163,0,0" VerticalAlignment="Top" Width="54" Click="buttonClouse_Click"/>
-        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263" />
-        <ComboBox x:Name="comboboxForSearch" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" Width="263" Height="24"  />
+        <Label Content="Что искать:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Height="26" FontSize="14" FontFamily="Arial"/>
+        <Button x:Name="buttonSearch" Content="Найти" HorizontalAlignment="Left" Margin="258,163,0,0" VerticalAlignment="Top" Width="62" Click="buttonSearch_Click" FontFamily="Arial" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747" Height="20"/>
+        <Button x:Name="buttonClouse" Content="Закрыть" HorizontalAlignment="Left" Margin="329,163,0,0" VerticalAlignment="Top" Width="55" Click="buttonClouse_Click" Background="White" />
+        <TextBox x:Name="textboxFilterName" HorizontalAlignment="Left" Margin="98,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="263"  Height="24" />
+        <ComboBox x:Name="comboboxForSearch" HorizontalAlignment="Left" Margin="98,48,0,0" VerticalAlignment="Top" Width="263" Height="24" MouseLeftButtonDown="comboboxForSearch_MouseLeftButtonDown" Background="#FFFFFDFD"  />
+        <Button x:Name="buttonSearchOrganization" Content="..." HorizontalAlignment="Left" Margin="361,85,0,0" VerticalAlignment="Top" Height="24" Width="33" Click="buttonSearchOrganization_Click" Background="White" />
+        <DatePicker x:Name="dataPickerEditFrom" HorizontalAlignment="Left" Margin="98,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11"/>
+        <DatePicker x:Name="dataPickerEditTo" HorizontalAlignment="Left" Margin="234,85,0,0" VerticalAlignment="Top" DisplayDate="2023-05-11"/>
 
     </Grid>
 </Window>
