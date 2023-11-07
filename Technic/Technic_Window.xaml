@@ -5,8 +5,98 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Technic"
         mc:Ignorable="d"
-        Title="Technic_Window" Height="450" Width="800">
-    <Grid>
-        
+        Title="Technic_Window" Height="516" Width="622">
+    <Grid Margin="0,0,0,-6">
+        <Label Content="........" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" FontFamily="Arial" FontSize="20"/>
+        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Width="121" FontFamily="Arial" FontSize="14"/>
+        <Label Content="Код" HorizontalAlignment="Left" Margin="458,88,0,0" VerticalAlignment="Top" Width="44" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="122,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" Height="22"/>
+        <Label Content="Код НСИ:" HorizontalAlignment="Left" Margin="10,117,0,0" VerticalAlignment="Top" Width="77" FontFamily="Arial" FontSize="14"/>
+        <TextBox HorizontalAlignment="Left" Margin="122,121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="322" Height="22"/>
+        <TextBox HorizontalAlignment="Left" Margin="507,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="105" Height="22"/>
+        <TabControl Margin="10,152,10,0" Height="286" VerticalAlignment="Top">
+            <TabItem Header="Параметры" Margin="-2,-2,-2,0">
+                <Grid Background="White" Height="274">
+                    <Label Content="Класс объекта эксплатации:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Arial"/>
+                    <Label Content="Марка техники:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Инвентарный номер ОС:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Идентификационный номер(VIN):" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Категория управления ТС:" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Назначения транспорта:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Государственный рег.знак:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Кондиционер:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="245,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                    <CheckBox  HorizontalAlignment="Left" Margin="245,224,0,0" VerticalAlignment="Top"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="113"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="567,144,0,0" VerticalAlignment="Top" Width="19" Height="18"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="550,118,0,0" VerticalAlignment="Top" Width="19" Height="18" RenderTransformOrigin="0.5,0.504"/>
+                    <Button Content="..." HorizontalAlignment="Left" Margin="569,118,0,0" VerticalAlignment="Top" Height="18" Width="17"/>
+                    <Grid Background="White" Margin="0,0,0,30">
+                        <Label Content="Класс объекта эксплатации:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Arial"/>
+                        <Label Content="Марка техники:" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Инвентарный номер ОС:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Идентификационный номер(VIN):" HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Категория управления ТС:" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Назначения транспорта:" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Государственный рег.знак:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <Label Content="Кондиционер:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <TextBox HorizontalAlignment="Left" Margin="245,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14"/>
+                        <CheckBox  HorizontalAlignment="Left" Margin="245,224,0,0" VerticalAlignment="Top"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="113"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="567,144,0,0" VerticalAlignment="Top" Width="19" Height="18"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="550,118,0,0" VerticalAlignment="Top" Width="19" Height="18" RenderTransformOrigin="0.5,0.504"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="569,118,0,0" VerticalAlignment="Top" Height="18" Width="17"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="569,40,0,0" VerticalAlignment="Top" Height="18" Width="17"/>
+                        <Button Content="..." HorizontalAlignment="Left" Margin="569,14,0,0" VerticalAlignment="Top" Height="18" Width="17"/>
+                    </Grid>
+                    <ComboBox HorizontalAlignment="Left" Margin="550,40,0,0" VerticalAlignment="Top" Width="19" Height="18" RenderTransformOrigin="0.5,0.504"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="550,14,0,0" VerticalAlignment="Top" Width="19" Height="18" RenderTransformOrigin="0.5,0.504"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Принадлежность" Margin="-2,-2,-2,0">
+                <Grid Background="White">
+                    <Label Content="Принадлежность объекта:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Собственник объекта:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Фома владения:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Эксплуатант:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <Label Content="Договор:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
+                    <TextBox HorizontalAlignment="Left" Margin="196,12,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="342" Height="22"/>
+                    <TextBox HorizontalAlignment="Left" Margin="196,43,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="342" Height="22"/>
+                    <TextBox HorizontalAlignment="Left" Margin="196,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="342" Height="22"/>
+                    <TextBox HorizontalAlignment="Left" Margin="196,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="342" Height="22"/>
+                    <TextBox HorizontalAlignment="Left" Margin="196,136,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="278" Height="22"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="519,12,0,0" VerticalAlignment="Top" Width="19"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="500,43,0,0" VerticalAlignment="Top" Width="19"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="519,74,0,0" VerticalAlignment="Top" Width="19"/>
+                    <DatePicker HorizontalAlignment="Left" Margin="484,136,0,0" VerticalAlignment="Top" Height="22"/>
+                    <Button Content="..." HorizontalAlignment="Left" Margin="519,43,0,0" VerticalAlignment="Top" Height="22" Width="19"/>
+                    <Button Content="..." HorizontalAlignment="Left" Margin="519,105,0,0" VerticalAlignment="Top" Height="22" Width="19"/>
+                    <Button Content="..." HorizontalAlignment="Left" Margin="455,136,0,0" VerticalAlignment="Top" Height="22" Width="19"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="436,136,0,0" VerticalAlignment="Top" Width="19"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Доп.реквизиты" Margin="-2,-2,-2,0">
+                <Grid Background="White"/>
+            </TabItem>
+        </TabControl>
+        <TextBox HorizontalAlignment="Left" Margin="56,457,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="388" Height="22"/>
+        <Label Content="Бак" HorizontalAlignment="Left" Margin="22,457,0,0" VerticalAlignment="Top" Height="28" Width="34" FontFamily="Arial"/>
+        <ComboBox HorizontalAlignment="Left" Margin="406,457,0,0" VerticalAlignment="Top" Width="19"/>
+        <Button Content="..." HorizontalAlignment="Left" Margin="425,457,0,0" VerticalAlignment="Top" Width="19" Height="22"/>
+
     </Grid>
 </Window>

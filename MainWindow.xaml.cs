@@ -27,7 +27,7 @@ namespace ARM_Engineer
         {
             DataBase.Connection();
             InitializeComponent();
-            
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

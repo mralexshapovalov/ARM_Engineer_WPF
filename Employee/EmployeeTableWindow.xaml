@@ -53,7 +53,7 @@
         </Button>
 
 
-        <Button x:Name="buttonCallengFilter" Content="Отменить фильтр" HorizontalAlignment="Left" Margin="104,18,0,0" VerticalAlignment="Top" Width="109" Click="buttonCallengFilter_Click" Visibility="Collapsed" Height="25" FontFamily="Arial" Background="White">
+        <Button x:Name="buttonCancelFilter" Content="Отменить фильтр" HorizontalAlignment="Left" Margin="104,18,0,0" VerticalAlignment="Top" Width="109" Click="buttonCancelFilter_Click" Visibility="Collapsed" Height="25" FontFamily="Arial" Background="White">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>

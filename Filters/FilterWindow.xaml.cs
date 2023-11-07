@@ -42,11 +42,13 @@ namespace ARM_Engineer.Employee
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
             employee_Table_Window = new Employee_Table_Window();
+
             if (comboboxForSearch.Text == "Имя")
             {
                 combotext = comboboxForSearch.Text;
                 sendtext = textboxFilterName.Text;
-                employee_Table_Window.Filter();
+                employee_Table_Window.BuildSQLStringFilter();
+                
                 
             }
             else if (comboboxForSearch.Text == "Организация")
@@ -54,16 +56,16 @@ namespace ARM_Engineer.Employee
                 combotext = comboboxForSearch.Text;
                 sendtext = textboxFilterName.Text;
                 orgainzationId = filterOrganization.ID;
-                employee_Table_Window.Filter();
-              
+                employee_Table_Window.BuildSQLStringFilter();
+                
             }
             else if (comboboxForSearch.Text == "Дата")
             {
                 combotext = comboboxForSearch.Text;
                 datePickerFrom = dataPickerEditFrom.SelectedDate.Value;
                 datePickerTo = dataPickerEditTo.SelectedDate.Value;
-                employee_Table_Window.Filter();
-         
+                employee_Table_Window.BuildSQLStringFilter();
+                
             }
 
             Close();

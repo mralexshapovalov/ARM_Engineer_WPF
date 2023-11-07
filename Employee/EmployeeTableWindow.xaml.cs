@@ -29,15 +29,18 @@ namespace ARM_Engineer.Employee
     public partial class Employee_Table_Window : Window
     {
         List<Employee> list;
-        FilterWindow filterWindow = new FilterWindow();
+        FilterWindow filterWindow;
+        public bool IsFilterEnable = false;
         public Employee_Table_Window()
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();        
             Data_output();
         }
-       public string Filter()
-        {
+
+       public string BuildSQLStringFilter()
+       {
+            IsFilterEnable = true;
             string names = FilterWindow.sendtext;
             string combotext = FilterWindow.combotext;
             DateTime datePickerFrom = FilterWindow.datePickerFrom;
@@ -83,19 +86,22 @@ namespace ARM_Engineer.Employee
        }
         public void Data_output()
         {
-            string valueString;
-            if (buttonCallengFilter.IsVisible)
+            string filterSQLString;
+
+            if (buttonCancelFilter.IsVisible)
             {
-                valueString = "";
+                filterSQLString = "";
             }
             else
             {
-                valueString = Filter();
+                filterSQLString = BuildSQLStringFilter();
             }
+
+
 
             list = new List<Employee>();
             
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" "+ valueString, DataBase.newConnection); 
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Employee\" "+ filterSQLString, DataBase.newConnection); 
             NpgsqlDataReader reader = npgc.ExecuteReader();
 
             if (reader.HasRows)//Если пришли результаты
@@ -121,9 +127,9 @@ namespace ARM_Engineer.Employee
                 MessageBox.Show("Запрашиваемые данные ней найдены.Повторите запрос снова","Внимание");
             }
 
-            if(Filter() != "")
+            if(filterSQLString != "")
             {
-                buttonCallengFilter.Visibility = Visibility.Visible;
+                buttonCancelFilter.Visibility = Visibility.Visible;
             }
 
             reader.Close();
@@ -137,7 +143,7 @@ namespace ARM_Engineer.Employee
             if (employee_Window.DialogResult == true)
             {
                 Data_output();
-                buttonCallengFilter.Visibility = Visibility.Collapsed;
+                buttonCancelFilter.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -197,8 +203,9 @@ namespace ARM_Engineer.Employee
             {
                 if ((e.KeyboardDevice.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
                 {
-                   filterWindow.ShowDialog();
-                   Data_output();
+                    filterWindow = new FilterWindow();
+                    filterWindow.ShowDialog();
+                    Data_output();
                 }
             }
         }
@@ -209,10 +216,11 @@ namespace ARM_Engineer.Employee
             MessageBox.Show(index.ToString());
         }
 
-        private void buttonCallengFilter_Click(object sender, RoutedEventArgs e)
+        private void buttonCancelFilter_Click(object sender, RoutedEventArgs e)
         {
+            IsFilterEnable = false;
             Data_output();
-            buttonCallengFilter.Visibility=Visibility.Collapsed;
+            buttonCancelFilter.Visibility=Visibility.Collapsed;
             lableFilter.Visibility = Visibility.Collapsed;
         }
     }
