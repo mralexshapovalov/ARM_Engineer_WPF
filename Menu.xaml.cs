@@ -37,11 +37,6 @@ namespace ARM_Engineer
            
 
         }
-
-        
-
-       
-
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Approval_status_Windows approval_Status_Windows = new Approval_status_Windows();
@@ -56,10 +51,8 @@ namespace ARM_Engineer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Part_Window part_Window = new Part_Window();
-            part_Window.Show();
-
-
+            AddPartWindow addPartWindow = new AddPartWindow();
+            addPartWindow.Show();
         }
     }
 }

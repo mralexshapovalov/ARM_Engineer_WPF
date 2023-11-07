@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace ARM_Engineer.Part
 {
     /// <summary>
-    /// Interaction logic for Part_Window.xaml
+    /// Логика взаимодействия для PartWindow.xaml
     /// </summary>
-    public partial class Part_Window : Window
+    public partial class NomenclatureWindow : Window
     {
-        public Part_Window()
+        public NomenclatureWindow()
         {
             InitializeComponent();
         }

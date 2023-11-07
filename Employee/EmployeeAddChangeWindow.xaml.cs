@@ -23,9 +23,7 @@ namespace ARM_Engineer.Employee
         public Employee_Window(string openMode, Employee model)
         {
             this.WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-
             InitializeComponent();
-
             this.openMode = openMode;
             this.model = model;
 
@@ -70,8 +68,6 @@ namespace ARM_Engineer.Employee
                     {
                         MessageBox.Show("Дата увольнение не может быть раньше даты приема на работу!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-
-                   
                 }
                 catch (Exception ex)
                 {
@@ -112,19 +108,11 @@ namespace ARM_Engineer.Employee
         private void Record_close_Button_Click(object sender, RoutedEventArgs e)
         {
             ChangeAndEmployee();
-            
         }
-
-        private void Organization_Combobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void Record_Button_Click(object sender, RoutedEventArgs e)
         {
             ChangeAndEmployee();
         }
-
         private void buttonOrganizationSelect_Click(object sender, RoutedEventArgs e)
         {
             OrganizationWindow organizationWindow = new OrganizationWindow();
