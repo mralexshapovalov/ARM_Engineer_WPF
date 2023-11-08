@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Единица измерения" Height="450" Width="549" FontSize="14">
     <Grid>
-        <Button Content="Выбрать" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" FontFamily="Arial" FontSize="14" Height="25" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747"/>
-        <Button Content="Добавить ед.измерения" HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" Width="169" FontFamily="Arial" FontSize="14" Height="25" Background="White"/>
-        <TextBox HorizontalAlignment="Left" Margin="265,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Height="25" FontFamily="Arial" FontSize="14"/>
+        <Button Content="Выбрать" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="76" FontFamily="Arial" FontSize="14" Height="25" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747"/>
+        <Button Content="Добавить ед.измерения" HorizontalAlignment="Left" Margin="91,19,0,0" VerticalAlignment="Top" Width="169" FontFamily="Arial" FontSize="14" Height="25" Background="White"/>
+        <TextBox HorizontalAlignment="Left" Margin="265,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Height="25" FontFamily="Arial" FontSize="14"/>
 
-        <Button  HorizontalAlignment="Left" Margin="408,11,0,0" VerticalAlignment="Top" Height="22" Width="19" Background="White" BorderBrush="#FFFFFDFD">
+        <Button  HorizontalAlignment="Left" Margin="408,20,0,0" VerticalAlignment="Top" Height="22" Width="19" Background="White" BorderBrush="#FFFFFDFD">
             <Image Source="/icon/lupa2.ico"></Image>
         </Button>
-        <Button Content="Отмена поиска" HorizontalAlignment="Left" Margin="433,10,0,0" VerticalAlignment="Top" Height="25" Width="106" Background="White" FontFamily="Arial" FontSize="14"></Button>
+        <Button Content="Отмена поиска" HorizontalAlignment="Left" Margin="433,19,0,0" VerticalAlignment="Top" Height="25" Width="106" Background="White" FontFamily="Arial" FontSize="14"></Button>
         <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,59,10,10" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Наименование" Width="465"/>
