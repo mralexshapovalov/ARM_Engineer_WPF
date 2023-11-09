@@ -6,14 +6,62 @@
         xmlns:local="clr-namespace:ARM_Engineer.Unit_of_measurement"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="ARM_Engineer.Unit_of_measurement.AddUnitWindow"
         mc:Ignorable="d"
-        Title="Классификатор единицы измерения" Height="200" Width="420">
-    <Grid Margin="0,0,0,1">
-        <Button x:Name="buttonRecordClouseUnitMeasurement" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="147" FontFamily="Arial" FontSize="14" Height="25" FontWeight="Bold" Background="#FFFFE41D" Foreground="#FF484747"/>
-        <Button x:Name="buttonClouseUnitMeasurement" Content="Записать" HorizontalAlignment="Left" Margin="177,23,0,0" VerticalAlignment="Top" Width="83" FontFamily="Arial" FontSize="14" Height="25" Background="#FFFFFDFD"/>
-        <Label Content="Код:" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
-        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
-        <TextBox x:Name="textBoxCodeUnitMeasurement" HorizontalAlignment="Left" Margin="126,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" FontFamily="Arial" FontSize="14"/>
-        <TextBox x:Name="textBoxCodeNameMeasurement" HorizontalAlignment="Left" Margin="126,0,0,60" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="274" FontFamily="Arial" FontSize="14"/>
+        Title="Классификатор единицы измерения" Height="279" Width="613"  ResizeMode="NoResize"
+    >
+    <Grid Margin="0,0,0,-6" RenderTransformOrigin="0.413,0.437">
+
+        <Button x:Name="buttonRecordClouseUnitMeasurement" Content="Записать и закрыть" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="186" FontFamily="Arial" FontSize="16" Height="26" Foreground="#FF484747" FontWeight="Bold" OpacityMask="Black" >
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5" BlurRadius="2" Direction="320"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2" />
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" Opacity="0.96" SpreadMethod="Reflect" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFE30D" Offset="0.62"/>
+                    <GradientStop Color="#FFC7B741" Offset="0.908"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonClouseUnitMeasurement" Content="Записать" HorizontalAlignment="Left" Margin="212,56,0,0" VerticalAlignment="Top" Width="89" FontFamily="Arial" FontSize="14" Height="26" Foreground="#FF4D4D4D">
+
+
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5" BlurRadius="2" Direction="320"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect" Opacity="0.96">
+                    <GradientStop Color="White" Offset="0.856"/>
+                    <GradientStop Color="#FFCECECE" Offset="0.96"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Код:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Foreground="#FF4D4D4D"/>
+        <Label Content="Наименование:" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Width="126" Foreground="#FF4D4D4D"/>
+        <TextBox x:Name="textBoxCodeNameMeasurement" HorizontalAlignment="Left" Margin="136,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="405" FontFamily="Arial" FontSize="16" Height="29" >
+    
+                <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="textBoxCodeUnitMeasurement" HorizontalAlignment="Left" Margin="136,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontFamily="Arial" FontSize="16" Height="29" SelectionBrush="#FFF5CA00">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Label Content="Классификатор единицы измерения" HorizontalAlignment="Left" Margin="46,10,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="22" Width="392"/>
 
     </Grid>
 </Window>

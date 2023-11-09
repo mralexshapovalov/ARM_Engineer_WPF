@@ -28,7 +28,7 @@
 
     <Grid Margin="0,0,0,-16">
 
-        <TabControl Background="#FFFBED9E" Margin="0,0,0,10" >
+        <TabControl Background="#FFFBFBFB" Margin="0,0,0,10" >
             <TabItem x:Name="tabControlMainMenu"  Margin="-2,-2,-20,-35" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -43,9 +43,9 @@
                     </LinearGradientBrush>
                 </TabItem.Background>
 
-                <Grid Background="White" Height="998" Margin="-36,0,-378,0"/>
+
             </TabItem>
-            <TabItem  Margin="20,-2,-38,-36" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand">
+            <TabItem  Margin="20,-2,-38,-36" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" Background="#FFFBED9E">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image x:Name="icomRepairWork" Source="/icon/control-bbanel.png" Height="49" Width="66"/>
@@ -53,27 +53,6 @@
                     </StackPanel>
                 </TabItem.Header>
 
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1">
-                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                        <GradientStop Color="#FFFBED9E" Offset="0"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
-                <Grid Background="White" Height="1127" Margin="-4,0,-383,0">
-                    <Label Content="Справочники" HorizontalAlignment="Left" Margin="38,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
-                    <Label Content="Документы" HorizontalAlignment="Left" Margin="33,241,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
-                    <Label Content="Создать" HorizontalAlignment="Left" Margin="474,64,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
-                    <Button x:Name="buttonObjectExploitation" Content="Объект эксплуатации" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,97,0,0" FontFamily="Arial" FontSize="14" Click="buttonObjectExploitation_Click"/>
-                    <Button Content="Дефектовочная ведомость" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,290,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonAprovalStatus" Content="Статус согласование" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,118,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonUintMeasurement" Content="Единица измерения" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,139,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonPart" Content="Запасная часть" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,160,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonApplication" Content="Заявка" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,269,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonOrderAttire" Content="Заказ-наряд" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,311,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttonTimesheet" Content="Табель учета рабочего времени" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,332,0,0" FontFamily="Arial" FontSize="14"/>
-                    <Button x:Name="buttinCertificateCompletedWorks" Content="Акт выполненых работ" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource HoverUnderlineStyleButton}"  Margin="38,353,0,0" FontFamily="Arial" FontSize="14"/>
-
-                </Grid>
             </TabItem>
 
             <TabItem Margin="38,-2,-79,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -89,10 +68,6 @@
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="White" Height="1100" Margin="-17,0,-385,0">
-                    <Label Content="Документы" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Foreground="#FF009646" FontSize="16"/>
-                    
-                </Grid>
             </TabItem>
             <TabItem Margin="79,-2,-158,-35" FontSize="14" FontFamily="Arial" BorderBrush="#FFFBED9E" Cursor="Hand" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
                 <TabItem.Header>
@@ -108,13 +83,11 @@
                         <GradientStop Color="#FFFBED9E" Offset="0"/>
                     </LinearGradientBrush>
                 </TabItem.Background>
-                <Grid Background="White" Height="1058" Margin="-14,0,-383,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="766*"/>
-                        <ColumnDefinition Width="303*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
+
             </TabItem>
+
+
+
 
         </TabControl>
         <Border BorderBrush="#FFFBED9E" BorderThickness="1" HorizontalAlignment="Left" Height="90" Margin="1012,0,0,0" VerticalAlignment="Top" Width="1013" Background="#FFFBED9E"/>

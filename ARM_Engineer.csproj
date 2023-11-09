@@ -11,6 +11,8 @@
     <None Remove="icon\control-bbanel.png" />
     <None Remove="icon\Desktop.png" />
     <None Remove="icon\Employee.png" />
+    <None Remove="icon\LupaC.ico" />
+    <None Remove="icon\LupaPNG.png" />
     <None Remove="icon\Products.png" />
   </ItemGroup>
 
@@ -23,6 +25,8 @@
     <Resource Include="icon\control-bbanel.png" />
     <Resource Include="icon\Desktop.png" />
     <Resource Include="icon\Employee.png" />
+    <Resource Include="icon\LupaC.ico" />
+    <Resource Include="icon\LupaPNG.png" />
     <Resource Include="icon\Products.png" />
   </ItemGroup>
 

@@ -1,9 +1,10 @@
-﻿<Window x:Class="ARM_Engineer.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml" x:Class="ARM_Engineer.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -12,6 +13,8 @@
         <Button x:Name="Status_Button" Content="Статус" HorizontalAlignment="Left" Margin="472,94,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click"/>
         <Button x:Name="Employee_Buton" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="380,15,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Employee_Buton_Click"/>
         <Button Content="Меню" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="Button_Click_1"/>
+
+        <ui:Button Content="Button" HorizontalAlignment="Left" Margin="90,195,0,0" VerticalAlignment="Top" Height="59" Width="113" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

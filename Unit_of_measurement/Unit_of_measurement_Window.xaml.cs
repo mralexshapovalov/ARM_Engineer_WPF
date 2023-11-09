@@ -23,5 +23,11 @@ namespace ARM_Engineer.Unit_of_measurement
         {
             InitializeComponent();
         }
+
+        private void buttonAddUnitMeasurement_Click(object sender, RoutedEventArgs e)
+        {
+            AddUnitWindow addUnitWindow = new AddUnitWindow();
+            addUnitWindow.Show();
+        }
     }
 }

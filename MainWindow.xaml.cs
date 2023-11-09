@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ARM_Engineer.Unit_of_measurement;
 namespace ARM_Engineer
 {
     /// <summary>
@@ -46,6 +47,12 @@ namespace ARM_Engineer
         {
             Menu menu = new Menu();
             menu.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Unit_of_measurement_Window unit_of_measurement_ = new Unit_of_measurement_Window();
+            unit_of_measurement_.Show();
         }
     }
 }
