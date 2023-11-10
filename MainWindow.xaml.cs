@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ARM_Engineer.Unit_of_measurement;
+using ARM_Engineer.Defect_list;
 namespace ARM_Engineer
 {
     /// <summary>
@@ -53,6 +54,22 @@ namespace ARM_Engineer
         {
             Unit_of_measurement_Window unit_of_measurement_ = new Unit_of_measurement_Window();
             unit_of_measurement_.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            DefectListWindow defectListWindow = new DefectListWindow();
+            defectListWindow.Show();
         }
     }
 }

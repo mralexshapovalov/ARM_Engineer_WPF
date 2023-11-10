@@ -14,7 +14,8 @@
         <Button x:Name="Employee_Buton" Grid.Column="1" Content="Button" HorizontalAlignment="Left" Margin="380,15,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="Employee_Buton_Click"/>
         <Button Content="Меню" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,5,0,0" Click="Button_Click_1"/>
 
-        <ui:Button Content="Button" HorizontalAlignment="Left" Margin="90,195,0,0" VerticalAlignment="Top" Height="59" Width="113" Click="Button_Click_2"/>
+        <ui:Button Content="Button" HorizontalAlignment="Left" Margin="0,74,0,0" VerticalAlignment="Top" Height="59" Width="113" Click="Button_Click_2"/>
+        <Button Content="DF" HorizontalAlignment="Left" Margin="327,203,0,0" VerticalAlignment="Top" Height="37" Width="133" Click="Button_Click_5"/>
 
     </Grid>
 </Window>

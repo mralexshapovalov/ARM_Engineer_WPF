@@ -27,8 +27,6 @@
             </Button.Background>
         </Button>
         <Button x:Name="buttonClouseUnitMeasurement" Content="Записать" HorizontalAlignment="Left" Margin="212,56,0,0" VerticalAlignment="Top" Width="89" FontFamily="Arial" FontSize="14" Height="26" Foreground="#FF4D4D4D">
-
-
             <Button.Effect>
                 <DropShadowEffect ShadowDepth="2" Color="Black" Opacity="0.5" BlurRadius="2" Direction="320"/>
             </Button.Effect>
@@ -47,8 +45,7 @@
         <Label Content="Код:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Foreground="#FF4D4D4D"/>
         <Label Content="Наименование:" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Width="126" Foreground="#FF4D4D4D"/>
         <TextBox x:Name="textBoxCodeNameMeasurement" HorizontalAlignment="Left" Margin="136,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="405" FontFamily="Arial" FontSize="16" Height="29" >
-    
-                <TextBox.Resources>
+            <TextBox.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="2"/>
                 </Style>

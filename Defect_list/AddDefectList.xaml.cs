@@ -15,19 +15,13 @@ using System.Windows.Shapes;
 namespace ARM_Engineer.Defect_list
 {
     /// <summary>
-    /// Interaction logic for DefectListWindow.xaml
+    /// Логика взаимодействия для AddDefectList.xaml
     /// </summary>
-    public partial class DefectListWindow : Window
+    public partial class AddDefectList : Window
     {
-        public DefectListWindow()
+        public AddDefectList()
         {
             InitializeComponent();
-        }
-
-        private void buttonСreateDefectList_Click(object sender, RoutedEventArgs e)
-        {
-            AddDefectList addDefectList = new AddDefectList();
-            addDefectList.Show();
         }
     }
 }
