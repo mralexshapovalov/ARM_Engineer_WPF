@@ -48,20 +48,20 @@
                         <Label Content="Государственный рег.знак:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
                         <Label Content="Год выпуска:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
                         <Label Content="Кондиционер:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="14"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox HorizontalAlignment="Left" Margin="245,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="20"/>
+                        <TextBox x:Name="textboxIdentificationNumber" HorizontalAlignment="Left" Margin="245,92,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="245,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxBrandEquipment"  HorizontalAlignment="Left" Margin="245,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxClassObjectOperation" HorizontalAlignment="Left" Margin="245,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxVehicleЬanagementСategory" HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxTransportDestinations" HorizontalAlignment="Left" Margin="245,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxStateRegistrationMark" HorizontalAlignment="Left" Margin="245,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="20"/>
                         <CheckBox  HorizontalAlignment="Left" Margin="245,228,0,0" VerticalAlignment="Top"/>
                         <ComboBox HorizontalAlignment="Left" Margin="567,144,0,0" VerticalAlignment="Top" Width="19" Height="21"/>
                         <ComboBox HorizontalAlignment="Left" Margin="550,118,0,0" VerticalAlignment="Top" Width="19" Height="21" RenderTransformOrigin="0.5,0.504"/>
                         <Button Content="..." HorizontalAlignment="Left" Margin="569,118,0,0" VerticalAlignment="Top" Height="21" Width="17"/>
                         <Button Content="..." HorizontalAlignment="Left" Margin="569,40,0,0" VerticalAlignment="Top" Height="21" Width="17"/>
                         <Button Content="..." HorizontalAlignment="Left" Margin="569,14,0,0" VerticalAlignment="Top" Height="21" Width="17"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="126"/>
+                        <DatePicker x:Name="dataPickerYearRelease" HorizontalAlignment="Left" Margin="245,195,0,0" VerticalAlignment="Top" Width="126"/>
                     </Grid>
                     <ComboBox HorizontalAlignment="Left" Margin="550,40,0,0" VerticalAlignment="Top" Width="19" Height="21" RenderTransformOrigin="0.5,0.504"/>
                     <ComboBox HorizontalAlignment="Left" Margin="550,14,0,0" VerticalAlignment="Top" Width="19" Height="21" RenderTransformOrigin="0.5,0.504"/>

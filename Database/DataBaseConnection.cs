@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ARM_Engineer.Models;
 using System.Windows.Documents;
+using ARM_Engineer.Technic;
 
 namespace ARM_Engineer.Database
 {
@@ -131,6 +132,108 @@ namespace ARM_Engineer.Database
             }
             reader.Close();
             return post;
+        }
+
+        static public List<ClassObjectOperation> GetAllClassObjectOperation()
+        {
+            List<ClassObjectOperation> list = new List<ClassObjectOperation>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Class_object_operation\"", newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new ClassObjectOperation());
+                    list.Last().ID = reader.GetInt32(0);
+                    list.Last().Name = reader.GetString(1);
+                }
+            }
+            reader.Close();
+            return list;
+        }
+
+        static public ClassObjectOperation GetClassObjectOperationByID(int id)
+        {
+            ClassObjectOperation classObjectOperation = new ClassObjectOperation();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Class_object_operation\" Where \"id\" = " + id, newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                reader.Read();
+                classObjectOperation.ID = reader.GetInt32(0);
+                classObjectOperation.Name = reader.GetString(1);
+
+            }
+            reader.Close();
+            return classObjectOperation;
+        }
+
+        static public List<BrandEquipment> GetAllBrandEquipment()
+        {
+            List<BrandEquipment> list = new List<BrandEquipment>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Brand_equipment\"", newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new BrandEquipment());
+                    list.Last().ID = reader.GetInt32(0);
+                    list.Last().Name = reader.GetString(1);
+                }
+            }
+            reader.Close();
+            return list;
+        }
+
+        static public BrandEquipment GetBrandEquipmentByID(int id)
+        {
+            BrandEquipment brandEquipment = new BrandEquipment();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Brand_equipment\" Where \"id\" = " + id, newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                reader.Read();
+                brandEquipment.ID = reader.GetInt32(0);
+                brandEquipment.Name = reader.GetString(1);
+
+            }
+            reader.Close();
+            return brandEquipment;
+        }
+
+        static public List<VehicleManagementCategory> GetAllVehicleManagementCategory()
+        {
+            List<VehicleManagementCategory> list = new List<VehicleManagementCategory>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Vehicle_management_category\"", newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new VehicleManagementCategory());
+                    list.Last().ID = reader.GetInt32(0);
+                    list.Last().Name = reader.GetString(1);
+                }
+            }
+            reader.Close();
+            return list;
+        }
+
+        static public VehicleManagementCategory GetVehicleManagementCategoryByID(int id)
+        {
+            VehicleManagementCategory vehicleManagementCategory = new VehicleManagementCategory();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Vehicle_management_category\" Where \"id\" = " + id, newConnection);
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                reader.Read();
+                vehicleManagementCategory.ID = reader.GetInt32(0);
+                vehicleManagementCategory.Name = reader.GetString(1);
+
+            }
+            reader.Close();
+            return vehicleManagementCategory;
         }
 
     }
