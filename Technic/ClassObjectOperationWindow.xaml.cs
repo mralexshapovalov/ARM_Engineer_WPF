@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ARM_Engineer.Database;
+using ARM_Engineer.Models;
+using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +25,25 @@ namespace ARM_Engineer.Technic
         public ClassObjectOperationWindow()
         {
             InitializeComponent();
+            Data_output();
+        }
+
+        void Data_output()
+        {
+            list = new List<Division>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\"", DataBase.Connection());
+            NpgsqlDataReader reader = npgc.ExecuteReader();
+            if (reader.HasRows)//Если пришли результаты
+            {
+                while (reader.Read())//Считывает строчку
+                {
+                    list.Add(new Division());
+                    list.Last().ID = reader.GetInt32("id");
+                    list.Last().Name = reader.GetString("name");
+                }
+                dataGridDivision.ItemsSource = list;
+            }
+            reader.Close();
         }
     }
 }

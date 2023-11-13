@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ARM_Engineer.Technic
 {
-    class BrandEquipment
+   public class BrandEquipment
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

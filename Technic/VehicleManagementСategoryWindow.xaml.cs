@@ -31,7 +31,7 @@ namespace ARM_Engineer.Technic
         void Data_output()
         {
             list = new List<Division>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\"", DataBase.Connection());
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Vehicle_management_category\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {

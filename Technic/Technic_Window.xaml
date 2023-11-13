@@ -52,7 +52,7 @@
                         <TextBox x:Name="textboxInventoryNumber" HorizontalAlignment="Left" Margin="245,66,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
                         <TextBox x:Name="textboxBrandEquipment"  HorizontalAlignment="Left" Margin="245,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
                         <TextBox x:Name="textboxClassObjectOperation" HorizontalAlignment="Left" Margin="245,14,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
-                        <TextBox x:Name="textboxVehicleЬanagementСategory" HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
+                        <TextBox x:Name="textboxVehicleManagementСategory" HorizontalAlignment="Left" Margin="245,118,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
                         <TextBox x:Name="textboxTransportDestinations" HorizontalAlignment="Left" Margin="245,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="21"/>
                         <TextBox x:Name="textboxStateRegistrationMark" HorizontalAlignment="Left" Margin="245,170,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="341" FontFamily="Arial" FontSize="14" Height="20"/>
                         <CheckBox  HorizontalAlignment="Left" Margin="245,228,0,0" VerticalAlignment="Top"/>

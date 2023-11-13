@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ARM_Engineer.Technic
 {
-    class ClassObjectOperation
+   public class ClassObjectOperation
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

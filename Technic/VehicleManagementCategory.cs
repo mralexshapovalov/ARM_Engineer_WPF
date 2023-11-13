@@ -8,5 +8,7 @@ namespace ARM_Engineer.Technic
 {
     class VehicleManagementCategory
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

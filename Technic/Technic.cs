@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace ARM_Engineer.Technic
 {
-    class Technic
-    {
+   public class Technic
+   {
         public int ID { get; set; }
-        public string? ServiceNumber { get; set; }
-        public string? Name { get; set; }
-        public DateTime? YearOfBirth { get; set; }
-        public DateTime? DataEmployee { get; set; }
-        public DateTime? DateDismissial { get; set; }
-        public int ID_Orgainzation { get; set; }
-        public int ID_Division { get; set; }
-        public int ID_Post { get; set; }
-        public Organization Organization
+        public int IDClassObjectOperation { get; set; }
+        public string? IDBrandEquipment { get; set; }
+        public string? InventoryNumber { get; set; }
+        public string? IdentificationNumber { get; set; }
+        public int IDVehicleManagementСategory { get; set; }
+        public string? TransportDestinations { get; set; }
+        public string? StateRegistrationMark { get; set; }
+        public DateTime YearRelease { get; set; }
+        public ClassObjectOperation classObjectOperation
         {
             get
             {

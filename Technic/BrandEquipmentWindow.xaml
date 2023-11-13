@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARM_Engineer.Technic"
         mc:Ignorable="d"
-        Title="BrandEquipmentWindow" Height="450" Width="800">
+        Title="BrandEquipmentWindow" Height="407" Width="319">
     <Grid>
-        
+        <DataGrid x:Name="dataGridBrandEquipment" d:ItemsSource="{d:SampleData ItemCount=2}"
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False"  
+                  ColumnHeaderHeight="40"  
+                  RowHeight="30" 
+                  FontSize="14"  
+                  AlternatingRowBackground="LightGray" 
+                  GridLinesVisibility="None" 
+                  FontFamily="Arial" 
+                  VerticalAlignment="Top" 
+                  Height="381"  
+                  SelectedIndex="0" 
+                  ColumnWidth="*"  Margin="0,10,0,0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
