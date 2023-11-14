@@ -21,8 +21,8 @@
                   SelectedIndex="0" 
                   ColumnWidth="*"  Margin="0,10,0,0" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />
+                    <DataGridTextColumn Binding="{Binding id}" Header="ID"  Width="50"/>
+                    <DataGridTextColumn Binding="{Binding name}" Header="Подразделение" Width="305" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

@@ -3,6 +3,7 @@ using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace ARM_Engineer.Technic
     /// </summary>
     public partial class VehicleManagementCategoryWindow : Window
     {
+       // public VehicleManagementCategory selectedItem;
+        List<VehicleManagementCategory> list;
         public VehicleManagementCategoryWindow()
         {
             InitializeComponent();
@@ -30,18 +33,18 @@ namespace ARM_Engineer.Technic
 
         void Data_output()
         {
-            list = new List<Division>();
+            list = new List<VehicleManagementCategory>();
             NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Vehicle_management_category\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Division());
+                    list.Add(new VehicleManagementCategory());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGridDivision.ItemsSource = list;
+                dataGridVehicleManagementСategory.ItemsSource = list;
             }
             reader.Close();
         }

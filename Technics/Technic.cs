@@ -11,7 +11,7 @@ namespace ARM_Engineer.Technic
    {
         public int ID { get; set; }
         public int IDClassObjectOperation { get; set; }
-        public string? IDBrandEquipment { get; set; }
+        public int IDBrandEquipment { get; set; }
         public string? InventoryNumber { get; set; }
         public string? IdentificationNumber { get; set; }
         public int IDVehicleManagementСategory { get; set; }
@@ -22,21 +22,21 @@ namespace ARM_Engineer.Technic
         {
             get
             {
-                return Database.DataBase.GetOrganizationByID(ID_Orgainzation);
+                return Database.DataBase.GetClassObjectOperationByID(IDClassObjectOperation);
             }
         }
-        public Division Division
+        public BrandEquipment brandEquipment
         {
             get
             {
-                return Database.DataBase.GetDivisionByID(ID_Division);
+                return Database.DataBase.GetBrandEquipmentByID(IDBrandEquipment);
             }
         }
-        public Post Post
+        public VehicleManagementCategory vehicleManagementCategory
         {
             get
             {
-                return Database.DataBase.GetPostByID(ID_Post);
+                return Database.DataBase.GetVehicleManagementCategoryByID(IDVehicleManagementСategory);
             }
         }
     }

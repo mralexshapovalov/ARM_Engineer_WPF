@@ -16,6 +16,7 @@
 
         <ui:Button Content="Button" HorizontalAlignment="Left" Margin="0,74,0,0" VerticalAlignment="Top" Height="59" Width="113" Click="Button_Click_2"/>
         <Button Content="DF" HorizontalAlignment="Left" Margin="327,203,0,0" VerticalAlignment="Top" Height="37" Width="133" Click="Button_Click_5"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="231,262,0,0" VerticalAlignment="Top" Click="Button_Click_6"/>
 
     </Grid>
 </Window>

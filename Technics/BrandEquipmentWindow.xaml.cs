@@ -3,6 +3,7 @@ using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,11 +19,13 @@ using System.Windows.Shapes;
 namespace ARM_Engineer.Technic
 {
     /// <summary>
-    /// Interaction logic for ClassObjectOperationWindow.xaml
+    /// Interaction logic for BrandEquipmentWindow.xaml
     /// </summary>
-    public partial class ClassObjectOperationWindow : Window
+    public partial class BrandEquipmentWindow : Window
     {
-        public ClassObjectOperationWindow()
+        public BrandEquipment selectedItem;
+        List<BrandEquipment> list;
+        public BrandEquipmentWindow()
         {
             InitializeComponent();
             Data_output();
@@ -30,18 +33,18 @@ namespace ARM_Engineer.Technic
 
         void Data_output()
         {
-            list = new List<Division>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Division\"", DataBase.Connection());
+            list = new List<BrandEquipment>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Brand_equipment\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new Division());
+                    list.Add(new BrandEquipment());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGridDivision.ItemsSource = list;
+                dataGridBrandEquipment.ItemsSource = list;
             }
             reader.Close();
         }

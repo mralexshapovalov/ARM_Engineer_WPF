@@ -18,6 +18,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ARM_Engineer.Unit_of_measurement;
 using ARM_Engineer.Defect_list;
+using ARM_Engineer.Technic;
+
 namespace ARM_Engineer
 {
     /// <summary>
@@ -70,6 +72,12 @@ namespace ARM_Engineer
         {
             DefectListWindow defectListWindow = new DefectListWindow();
             defectListWindow.Show();
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            ObjectExploitation objectExploitation = new ObjectExploitation();
+            objectExploitation.Show();
         }
     }
 }
