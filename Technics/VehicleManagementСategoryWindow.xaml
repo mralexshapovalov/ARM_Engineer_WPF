@@ -17,9 +17,9 @@
                   GridLinesVisibility="None" 
                   FontFamily="Arial" 
                   VerticalAlignment="Center" 
-                  Height="426"  
+                  Height="375"  
                   SelectedIndex="0" 
-                  ColumnWidth="*"  Margin="0,0,-319,0" >
+                  ColumnWidth="*"  Margin="0,0,-319,0" MouseDoubleClick="dataGridVehicleManagementСategory_MouseDoubleClick" >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />

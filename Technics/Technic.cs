@@ -10,6 +10,7 @@ namespace ARM_Engineer.Technic
    public class Technic
    {
         public int ID { get; set; }
+        public string Name { get; set; }
         public int IDClassObjectOperation { get; set; }
         public int IDBrandEquipment { get; set; }
         public string? InventoryNumber { get; set; }
@@ -18,21 +19,21 @@ namespace ARM_Engineer.Technic
         public string? TransportDestinations { get; set; }
         public string? StateRegistrationMark { get; set; }
         public DateTime YearRelease { get; set; }
-        public ClassObjectOperation classObjectOperation
+        public ClassObjectOperation ClassObjectOperation
         {
             get
             {
                 return Database.DataBase.GetClassObjectOperationByID(IDClassObjectOperation);
             }
         }
-        public BrandEquipment brandEquipment
+        public BrandEquipment BrandEquipment
         {
             get
             {
                 return Database.DataBase.GetBrandEquipmentByID(IDBrandEquipment);
             }
         }
-        public VehicleManagementCategory vehicleManagementCategory
+        public VehicleManagementCategory VehicleManagementCategory
         {
             get
             {

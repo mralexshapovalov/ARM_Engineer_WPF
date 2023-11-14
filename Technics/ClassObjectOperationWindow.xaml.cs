@@ -48,5 +48,15 @@ namespace ARM_Engineer.Technic
             }
             reader.Close();
         }
+
+        private void dataGridClassObjectOperation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridClassObjectOperation.SelectedItems.Count == 1)
+            {
+                selectedItem = (ClassObjectOperation)dataGridClassObjectOperation.SelectedItems[0];
+                DialogResult = true;
+                Close();
+            }
+        }
     }
 }

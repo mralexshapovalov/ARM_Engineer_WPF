@@ -23,7 +23,7 @@ namespace ARM_Engineer.Technic
     /// </summary>
     public partial class VehicleManagementCategoryWindow : Window
     {
-       // public VehicleManagementCategory selectedItem;
+        public VehicleManagementCategory selectedItem;
         List<VehicleManagementCategory> list;
         public VehicleManagementCategoryWindow()
         {
@@ -47,6 +47,16 @@ namespace ARM_Engineer.Technic
                 dataGridVehicleManagementСategory.ItemsSource = list;
             }
             reader.Close();
+        }
+
+        private void dataGridVehicleManagementСategory_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataGridVehicleManagementСategory.SelectedItems.Count == 1)
+            {
+                selectedItem = (VehicleManagementCategory)dataGridVehicleManagementСategory.SelectedItems[0];
+                DialogResult = true;
+                Close();
+            }
         }
     }
 }
