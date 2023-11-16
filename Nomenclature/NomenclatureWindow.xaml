@@ -15,7 +15,7 @@
         <Button x:Name="buttonSelectNomenclature" Content="Выбрать" HorizontalAlignment="Left" Margin="17,90,0,0" VerticalAlignment="Top" Width="74" FontFamily="Arial" Height="22" FontSize="14" Background="White"/>
         <Button x:Name="buttonSearch" Content="Найти..." HorizontalAlignment="Left" Margin="106,90,0,0" VerticalAlignment="Top" Width="71" FontFamily="Arial" Height="22" FontSize="14" Background="White"/>
         <Button x:Name="buttonCancleSearch"  Content="Отменить поиск" HorizontalAlignment="Left" Margin="189,90,0,0" VerticalAlignment="Top" Width="123" FontFamily="Arial" Height="22" FontSize="14" Background="White"/>
-        <Button x:Name="buttonAddNomenclature"  Content="Добавить номенклатуру" HorizontalAlignment="Left" Margin="328,90,0,0" VerticalAlignment="Top" Width="182" FontFamily="Arial" Height="22" FontSize="14" Background="White"/>
+        <Button x:Name="buttonAddNomenclature"  Content="Добавить номенклатуру" HorizontalAlignment="Left" Margin="328,90,0,0" VerticalAlignment="Top" Width="182" FontFamily="Arial" Height="22" FontSize="14" Background="White" Click="buttonAddNomenclature_Click"/>
         <DataGrid x:Name="dataGirdNomenclature" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,130,10,10"/>
 
     </Grid>

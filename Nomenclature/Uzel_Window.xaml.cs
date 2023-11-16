@@ -1,5 +1,4 @@
 ﻿using ARM_Engineer.Database;
-using ARM_Engineer.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -16,48 +15,48 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ARM_Engineer.Technic
+namespace ARM_Engineer.Nomenclature
 {
     /// <summary>
-    /// Interaction logic for ClassObjectOperationWindow.xaml
+    /// Interaction logic for Uzel_Window.xaml
     /// </summary>
-    public partial class ClassObjectOperationWindow : Window
+    public partial class Uzel_Window : Window
     {
-        public ClassObjectOperation selectedItem;
-        List<ClassObjectOperation> list;
-        public ClassObjectOperationWindow()
+        public Uzel selectedItem;
+        List<Uzel> list;
+        public Uzel_Window()
         {
             InitializeComponent();
             Data_output();
         }
 
+
         void Data_output()
         {
-            list = new List<ClassObjectOperation>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Class_object_operation\"", DataBase.Connection());
+            list = new List<Uzel>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Aggregate\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new ClassObjectOperation());
+                    list.Add(new Uzel());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGridClassObjectOperation.ItemsSource = list;
+                datagridUzel.ItemsSource = list;
             }
             reader.Close();
         }
 
-        private void dataGridClassObjectOperation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void datagridUzel_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridClassObjectOperation.SelectedItems.Count == 1)
+            if (datagridUzel.SelectedItems.Count == 1)
             {
-                selectedItem = (ClassObjectOperation)dataGridClassObjectOperation.SelectedItems[0];
+                selectedItem = (Uzel)datagridUzel.SelectedItems[0];
                 DialogResult = true;
                 Close();
             }
         }
-
     }
 }

@@ -1,0 +1,17 @@
+﻿<Window x:Class="ARM_Engineer.Nomenclature.Uzel_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_Engineer.Nomenclature"
+        mc:Ignorable="d"
+        Title="Uzel_Window" Height="450" Width="345">
+    <Grid>
+        <DataGrid x:Name="datagridUzel" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,10,10" AutoGenerateColumns="False" MouseDoubleClick="datagridUzel_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

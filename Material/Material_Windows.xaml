@@ -20,9 +20,9 @@
         <TextBox HorizontalAlignment="Left" Margin="183,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Height="61"/>
         <TextBox HorizontalAlignment="Left" Margin="183,254,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
         <TextBox HorizontalAlignment="Left" Margin="183,283,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="255"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="438,140,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="438,108,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
-        <Button Content="..." HorizontalAlignment="Left" Margin="438,283,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Button x:Name="buttonSelectOrganization" Content="..." HorizontalAlignment="Left" Margin="438,140,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Button x:Name="buttonSelectTypeOfNimenaclature" Content="..." HorizontalAlignment="Left" Margin="438,108,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
+        <Button x:Name="buttonSelectUnitOfMeasuremen" Content="..." HorizontalAlignment="Left" Margin="438,283,0,0" VerticalAlignment="Top" Width="21" Height="18" BorderBrush="#FFABADB3" Background="White"/>
         <Label Content="Код:" HorizontalAlignment="Left" Margin="478,173,0,0" VerticalAlignment="Top" Width="37" FontFamily="Arial"/>
         <TextBox HorizontalAlignment="Left" Margin="520,179,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="118"/>
 

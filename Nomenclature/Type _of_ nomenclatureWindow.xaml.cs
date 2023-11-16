@@ -1,5 +1,5 @@
 ﻿using ARM_Engineer.Database;
-using ARM_Engineer.Models;
+using ARM_Engineer.Technic;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -16,16 +16,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ARM_Engineer.Technic
+namespace ARM_Engineer.Nomenclature
 {
     /// <summary>
-    /// Interaction logic for ClassObjectOperationWindow.xaml
+    /// Interaction logic for Type__of__nomenclature.xaml
     /// </summary>
-    public partial class ClassObjectOperationWindow : Window
+    public partial class Type_of_nomenclatureWindow : Window
     {
-        public ClassObjectOperation selectedItem;
-        List<ClassObjectOperation> list;
-        public ClassObjectOperationWindow()
+        public TypeOfNomenclature selectedItem;
+        List<TypeOfNomenclature> list;
+        public Type_of_nomenclatureWindow()
         {
             InitializeComponent();
             Data_output();
@@ -33,31 +33,30 @@ namespace ARM_Engineer.Technic
 
         void Data_output()
         {
-            list = new List<ClassObjectOperation>();
-            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Class_object_operation\"", DataBase.Connection());
+            list = new List<TypeOfNomenclature>();
+            NpgsqlCommand npgc = new NpgsqlCommand("SELECT * FROM public.\"Aggregate\"", DataBase.Connection());
             NpgsqlDataReader reader = npgc.ExecuteReader();
             if (reader.HasRows)//Если пришли результаты
             {
                 while (reader.Read())//Считывает строчку
                 {
-                    list.Add(new ClassObjectOperation());
+                    list.Add(new TypeOfNomenclature());
                     list.Last().ID = reader.GetInt32("id");
                     list.Last().Name = reader.GetString("name");
                 }
-                dataGridClassObjectOperation.ItemsSource = list;
+                datagridTypeOfNomenclature.ItemsSource = list;
             }
             reader.Close();
         }
 
-        private void dataGridClassObjectOperation_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void datagridTypeOfNomenclature_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dataGridClassObjectOperation.SelectedItems.Count == 1)
+            if (datagridTypeOfNomenclature.SelectedItems.Count == 1)
             {
-                selectedItem = (ClassObjectOperation)dataGridClassObjectOperation.SelectedItems[0];
+                selectedItem = (TypeOfNomenclature)datagridTypeOfNomenclature.SelectedItems[0];
                 DialogResult = true;
                 Close();
             }
         }
-
     }
 }

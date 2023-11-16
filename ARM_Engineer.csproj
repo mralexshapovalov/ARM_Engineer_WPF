@@ -30,4 +30,8 @@
     <Resource Include="icon\Products.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uint\" />
+  </ItemGroup>
+
 </Project>

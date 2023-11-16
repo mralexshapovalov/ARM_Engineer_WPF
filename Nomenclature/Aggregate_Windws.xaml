@@ -1,0 +1,19 @@
+﻿<Window x:Class="ARM_Engineer.Uint.Aggregate_Windws"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ARM_Engineer.Uint"
+        mc:Ignorable="d"
+        Title="Uint_Windws" Height="450" Width="394">
+    <Grid Margin="0,0,10,0">
+        <DataGrid x:Name="datagridAggregate" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,10,0,10" AutoGenerateColumns="False" MouseDoubleClick="datagridAggregate_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID"  Width="50"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Подразделение" Width="305" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+
+    </Grid>
+</Window>

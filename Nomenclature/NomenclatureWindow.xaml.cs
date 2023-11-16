@@ -23,5 +23,10 @@ namespace ARM_Engineer.Part
         {
             InitializeComponent();
         }
+
+        private void buttonAddNomenclature_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
